@@ -13,7 +13,7 @@
 @implementation BaOcrApiOC
 
 + (NSString *)getBASerialOC:(NSString *)srcImagePath {
-    NSMutableString *serialStr = [[NSMutableString alloc] initWithCapacity:16];
+    NSMutableString *serialStr = [[NSMutableString alloc] initWithCapacity:17];
     int size = 6;
     int len = 512;
     char images[size][len];
@@ -33,6 +33,7 @@
         if ([self validSerial:text] && count < 2) {
             [serialStr appendString:text];
             count++;
+            if (count == 1) [serialStr appendString:@" "];
         }
         NSLog(@"text = %@", text);
     }

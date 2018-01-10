@@ -8,6 +8,9 @@
 
 #import "OcrCaptureView.h"
 
+#define STD_SCALE 0.57
+#define STD_HEIGHT 460
+#define STD_DEVICE_RATIO (SCREEN_HEIGHT / 568)
 
 @interface OcrCaptureView ()
 
@@ -31,9 +34,8 @@
     [targetRect.layer setBorderColor:[[UIColor orangeColor] CGColor]];
     [self addSubview:targetRect];
     NSLog(@"%@", [NSValue valueWithCGRect:self.frame]);
-    float scale = 0.57;
-    float height = 460;
-    float width = height * scale;
+    float height = STD_HEIGHT * STD_DEVICE_RATIO;
+    float width = height * STD_SCALE;
     float widthRatio = width / self.frame.size.width;
     float heightRatio = height / self.frame.size.height;
     [self.captureManager setSizeRatio:CGSizeMake(widthRatio, heightRatio)];

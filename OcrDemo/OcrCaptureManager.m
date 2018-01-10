@@ -8,6 +8,10 @@
 
 #import "OcrCaptureManager.h"
 
+// 角度和弧度转换
+#define DEGREES_TO_RADIANS(degrees)  ((M_PI * degrees) / 180.0)
+#define RADIANS_TO_DEGREES(radians) ((radians * 180.0) / M_PI)
+
 #define kSessionQueueLabel "OcrSessionQueue"
 @interface OcrCaptureManager ()
     
@@ -55,22 +59,20 @@
 - (void)takePic:(CaptureBlock)captureBlock {
     AVCaptureConnection *connection = [self.output connectionWithMediaType:AVMediaTypeVideo];
     
-    if (connection.isVideoOrientationSupported) {
-        connection.videoOrientation = [self currentVideoOrientation];
-    }
+//    if (connection.isVideoOrientationSupported) {
+//        connection.videoOrientation = [self currentVideoOrientation];
+//    }
     
     id handler = ^(CMSampleBufferRef imageDataSampleBuffer, NSError *error) {
         if (imageDataSampleBuffer != NULL) {
             NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
             UIImage *image = [[UIImage alloc] initWithData:imageData];
-//            image = [self resizeImage:image];
-            NSLog(@"originImage:%@", [NSValue valueWithCGSize:image.size]);
-            CGSize srcSize = image.size;
-            CGSize dstSize = CGSizeMake(srcSize.width * self.sizeRatio.width, srcSize.height * self.sizeRatio.height);
-            CGRect dstRect = CGRectMake((srcSize.width - dstSize.width) / 2, (srcSize.height - dstSize.height) / 2, dstSize.width, dstSize.height);
-            UIImage *dstImg = [image croppedImage:dstRect];
+//            NSLog(@"originImage:%@", [NSValue valueWithCGSize:image.size]);
+            UIImage *rotatedImage = [self rotateImageIfNessary:image];
+//            NSLog(@"rotatedImage:%@, orientation: %ld", [NSValue valueWithCGSize:rotatedImage.size], rotatedImage.imageOrientation);
+            UIImage *croppedImage = [self croppedImageIfNessary:rotatedImage];
             NSString *path = [FileUtils genImageSavePath];
-            [UIImageJPEGRepresentation(dstImg, 1.0f) writeToFile:path atomically:NO];
+            [UIImageJPEGRepresentation(croppedImage, 1.0f) writeToFile:path atomically:NO];
             if (captureBlock) {
                 captureBlock(path);
             }
@@ -81,23 +83,106 @@
     [self.output captureStillImageAsynchronouslyFromConnection:connection completionHandler:handler];
 
 }
-    
-- (UIImage *)resizeImage:(UIImage *)srcImage {
+
+- (UIImage *)rotateImageIfNessary:(UIImage *)srcImage {
+    NSLog(@"orientation : %ld", (long)srcImage.imageOrientation);
     CGSize srcSize = srcImage.size;
-    float diviceRatio = SCREEN_WIDTH / SCREEN_HEIGHT;
-    float imageRatio = srcSize.height / srcSize.width;
-    CGSize dstSize;
-    CGRect dstRect = CGRectMake(0, 0, srcSize.width, srcSize.height);
-    if (diviceRatio > imageRatio) {
-        dstSize = CGSizeMake(srcSize.width * (1 - (diviceRatio - imageRatio)), srcSize.height);
-        dstRect = CGRectMake(srcSize.width / 2.0 - dstSize.width / 2.0, 0, dstSize.width, dstSize.height);
-    } else if (diviceRatio < imageRatio) {
-        dstSize = CGSizeMake(srcSize.width, srcSize.height * (1 - (imageRatio - diviceRatio)));
-        dstRect = CGRectMake(0, srcSize.height / 2.0 - dstSize.height / 2.0, dstSize.width, dstSize.height);
+    if (srcSize.width < srcSize.height && srcImage.imageOrientation == UIImageOrientationRight) {
+        UIImage *dstImage = [UIImage imageWithCGImage:srcImage.CGImage scale:1 orientation:UIImageOrientationUp];
+        UIImage *fixRotateImage = [self fixOrientationOfImage:dstImage];
+
+        return fixRotateImage;
     }
+    return srcImage;
+}
+
+- (UIImage *)croppedImageIfNessary:(UIImage *)srcImage {
+    CGSize srcSize = srcImage.size;
+    CGSize dstSize = CGSizeMake(srcSize.width * self.sizeRatio.width, srcSize.height * self.sizeRatio.height);
+    CGRect dstRect = CGRectMake((srcSize.width - dstSize.width) / 2.0, (srcSize.height - dstSize.height) / 2.0, dstSize.width, dstSize.height);
+    
     return [srcImage croppedImage:dstRect];
 }
 
+- (UIImage *)fixOrientationOfImage:(UIImage *)image {
+    
+    // No-op if the orientation is already correct
+    if (image.imageOrientation == UIImageOrientationUp) return image;
+    
+    // We need to calculate the proper transformation to make the image upright.
+    // We do it in 2 steps: Rotate if Left/Right/Down, and then flip if Mirrored.
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    
+    switch (image.imageOrientation) {
+        case UIImageOrientationDown:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, image.size.height);
+            transform = CGAffineTransformRotate(transform, M_PI);
+            break;
+            
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, 0);
+            transform = CGAffineTransformRotate(transform, M_PI_2);
+            break;
+            
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, 0, image.size.height);
+            transform = CGAffineTransformRotate(transform, -M_PI_2);
+            break;
+        case UIImageOrientationUp:
+        case UIImageOrientationUpMirrored:
+            break;
+    }
+    
+    switch (image.imageOrientation) {
+        case UIImageOrientationUpMirrored:
+        case UIImageOrientationDownMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.width, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+            
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRightMirrored:
+            transform = CGAffineTransformTranslate(transform, image.size.height, 0);
+            transform = CGAffineTransformScale(transform, -1, 1);
+            break;
+        case UIImageOrientationUp:
+        case UIImageOrientationDown:
+        case UIImageOrientationLeft:
+        case UIImageOrientationRight:
+            break;
+    }
+    
+    // Now we draw the underlying CGImage into a new context, applying the transform
+    // calculated above.
+    CGContextRef ctx = CGBitmapContextCreate(NULL, image.size.width, image.size.height,
+                                             CGImageGetBitsPerComponent(image.CGImage), 0,
+                                             CGImageGetColorSpace(image.CGImage),
+                                             CGImageGetBitmapInfo(image.CGImage));
+    CGContextConcatCTM(ctx, transform);
+    switch (image.imageOrientation) {
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            // Grr...
+            CGContextDrawImage(ctx, CGRectMake(0,0,image.size.height,image.size.width), image.CGImage);
+            break;
+            
+        default:
+            CGContextDrawImage(ctx, CGRectMake(0,0,image.size.width,image.size.height), image.CGImage);
+            break;
+    }
+    
+    // And now we just create a new UIImage from the drawing context
+    CGImageRef cgimg = CGBitmapContextCreateImage(ctx);
+    UIImage *img = [UIImage imageWithCGImage:cgimg];
+    CGContextRelease(ctx);
+    CGImageRelease(cgimg);
+    return img;
+}
     
 - (dispatch_queue_t)sessionQueue {
     if (!_sessionQueue) {

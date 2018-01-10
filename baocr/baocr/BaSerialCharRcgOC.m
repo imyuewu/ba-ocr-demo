@@ -32,6 +32,7 @@ static BaSerialCharRcgOC *serialCharRcg = nil;
     self = [super init];
     if (self) {
         _tesseract = [[G8Tesseract alloc] initWithLanguage:@"eng" configDictionary:nil configFileNames:self.cfgFileNames absoluteDataPath:nil engineMode:G8OCREngineModeTesseractOnly];
+        _tesseract.charWhitelist = @"0123456789";
     }
     return self;
 }

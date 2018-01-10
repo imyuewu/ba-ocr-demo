@@ -21,6 +21,7 @@
     self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = [[RootVC alloc] init];
+    NSLog(@"screen size : %@", [NSValue valueWithCGRect:[[UIScreen mainScreen] bounds]]);
     [self.window makeKeyAndVisible];
 
     return YES;
