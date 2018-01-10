@@ -1,0 +1,438 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE4904F720046A78001E03E1 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4904F620046A78001E03E1 /* TesseractOCR.framework */; };
+		CE4904FA20046BAD001E03E1 /* BaOcrApiOC.h in Headers */ = {isa = PBXBuildFile; fileRef = CE4904F820046BAD001E03E1 /* BaOcrApiOC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE4904FB20046BAD001E03E1 /* BaOcrApiOC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4904F920046BAD001E03E1 /* BaOcrApiOC.m */; };
+		CE49050220046E8A001E03E1 /* BaSerialCharRcgOC.h in Headers */ = {isa = PBXBuildFile; fileRef = CE49050020046E8A001E03E1 /* BaSerialCharRcgOC.h */; };
+		CE49050320046E8A001E03E1 /* BaSerialCharRcgOC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49050120046E8A001E03E1 /* BaSerialCharRcgOC.m */; };
+		CEA68B302005FA4B00249BEC /* baocr.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEA68B2F2005FA4B00249BEC /* baocr.bundle */; };
+		CED9DADA1FFF838C0022FE19 /* baocr.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAD81FFF838C0022FE19 /* baocr.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CED9DAF61FFF83CC0022FE19 /* BaAlgo.c in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAE01FFF83CC0022FE19 /* BaAlgo.c */; };
+		CED9DAF71FFF83CC0022FE19 /* BaAlgo.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAE11FFF83CC0022FE19 /* BaAlgo.h */; };
+		CED9DAF81FFF83CC0022FE19 /* BaCharOpr.c in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAE21FFF83CC0022FE19 /* BaCharOpr.c */; };
+		CED9DAF91FFF83CC0022FE19 /* BaCharOpr.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAE31FFF83CC0022FE19 /* BaCharOpr.h */; };
+		CED9DAFA1FFF83CC0022FE19 /* BaDetect.c in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAE41FFF83CC0022FE19 /* BaDetect.c */; };
+		CED9DAFB1FFF83CC0022FE19 /* BaDetect.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAE51FFF83CC0022FE19 /* BaDetect.h */; };
+		CED9DAFC1FFF83CC0022FE19 /* BaFeature.c in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAE61FFF83CC0022FE19 /* BaFeature.c */; };
+		CED9DAFD1FFF83CC0022FE19 /* BaFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAE71FFF83CC0022FE19 /* BaFeature.h */; };
+		CED9DAFE1FFF83CC0022FE19 /* BaFileUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAE81FFF83CC0022FE19 /* BaFileUtils.c */; };
+		CED9DAFF1FFF83CC0022FE19 /* BaFileUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAE91FFF83CC0022FE19 /* BaFileUtils.h */; };
+		CED9DB001FFF83CC0022FE19 /* BaImgOpr.c in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAEA1FFF83CC0022FE19 /* BaImgOpr.c */; };
+		CED9DB011FFF83CC0022FE19 /* BaImgOpr.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAEB1FFF83CC0022FE19 /* BaImgOpr.h */; };
+		CED9DB021FFF83CC0022FE19 /* BaImgUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAEC1FFF83CC0022FE19 /* BaImgUtils.c */; };
+		CED9DB031FFF83CC0022FE19 /* BaImgUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAED1FFF83CC0022FE19 /* BaImgUtils.h */; };
+		CED9DB041FFF83CC0022FE19 /* BaOcrApi.c in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAEE1FFF83CC0022FE19 /* BaOcrApi.c */; };
+		CED9DB051FFF83CC0022FE19 /* BaOcrApi.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAEF1FFF83CC0022FE19 /* BaOcrApi.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CED9DB061FFF83CC0022FE19 /* BaOcrErrorCode.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAF01FFF83CC0022FE19 /* BaOcrErrorCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CED9DB071FFF83CC0022FE19 /* BaOcrHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAF11FFF83CC0022FE19 /* BaOcrHeaders.h */; };
+		CED9DB081FFF83CC0022FE19 /* BaStrUtils.c in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAF21FFF83CC0022FE19 /* BaStrUtils.c */; };
+		CED9DB091FFF83CC0022FE19 /* BaStrUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAF31FFF83CC0022FE19 /* BaStrUtils.h */; };
+		CED9DB0A1FFF83CC0022FE19 /* BaSVMTrain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAF41FFF83CC0022FE19 /* BaSVMTrain.cpp */; };
+		CED9DB0B1FFF83CC0022FE19 /* BaSVMTrain.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAF51FFF83CC0022FE19 /* BaSVMTrain.hpp */; };
+		CED9DB0D1FFF84850022FE19 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9DB0C1FFF84850022FE19 /* opencv2.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CE4904F620046A78001E03E1 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
+		CE4904F820046BAD001E03E1 /* BaOcrApiOC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaOcrApiOC.h; sourceTree = "<group>"; };
+		CE4904F920046BAD001E03E1 /* BaOcrApiOC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaOcrApiOC.m; sourceTree = "<group>"; };
+		CE49050020046E8A001E03E1 /* BaSerialCharRcgOC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaSerialCharRcgOC.h; sourceTree = "<group>"; };
+		CE49050120046E8A001E03E1 /* BaSerialCharRcgOC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaSerialCharRcgOC.m; sourceTree = "<group>"; };
+		CEA68B2F2005FA4B00249BEC /* baocr.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baocr.bundle; sourceTree = "<group>"; };
+		CED9DAD51FFF838C0022FE19 /* baocr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = baocr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED9DAD81FFF838C0022FE19 /* baocr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = baocr.h; sourceTree = "<group>"; };
+		CED9DAD91FFF838C0022FE19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED9DAE01FFF83CC0022FE19 /* BaAlgo.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BaAlgo.c; sourceTree = "<group>"; };
+		CED9DAE11FFF83CC0022FE19 /* BaAlgo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaAlgo.h; sourceTree = "<group>"; };
+		CED9DAE21FFF83CC0022FE19 /* BaCharOpr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BaCharOpr.c; sourceTree = "<group>"; };
+		CED9DAE31FFF83CC0022FE19 /* BaCharOpr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaCharOpr.h; sourceTree = "<group>"; };
+		CED9DAE41FFF83CC0022FE19 /* BaDetect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BaDetect.c; sourceTree = "<group>"; };
+		CED9DAE51FFF83CC0022FE19 /* BaDetect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaDetect.h; sourceTree = "<group>"; };
+		CED9DAE61FFF83CC0022FE19 /* BaFeature.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BaFeature.c; sourceTree = "<group>"; };
+		CED9DAE71FFF83CC0022FE19 /* BaFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaFeature.h; sourceTree = "<group>"; };
+		CED9DAE81FFF83CC0022FE19 /* BaFileUtils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BaFileUtils.c; sourceTree = "<group>"; };
+		CED9DAE91FFF83CC0022FE19 /* BaFileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaFileUtils.h; sourceTree = "<group>"; };
+		CED9DAEA1FFF83CC0022FE19 /* BaImgOpr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BaImgOpr.c; sourceTree = "<group>"; };
+		CED9DAEB1FFF83CC0022FE19 /* BaImgOpr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaImgOpr.h; sourceTree = "<group>"; };
+		CED9DAEC1FFF83CC0022FE19 /* BaImgUtils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BaImgUtils.c; sourceTree = "<group>"; };
+		CED9DAED1FFF83CC0022FE19 /* BaImgUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaImgUtils.h; sourceTree = "<group>"; };
+		CED9DAEE1FFF83CC0022FE19 /* BaOcrApi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BaOcrApi.c; sourceTree = "<group>"; };
+		CED9DAEF1FFF83CC0022FE19 /* BaOcrApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaOcrApi.h; sourceTree = "<group>"; };
+		CED9DAF01FFF83CC0022FE19 /* BaOcrErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaOcrErrorCode.h; sourceTree = "<group>"; };
+		CED9DAF11FFF83CC0022FE19 /* BaOcrHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaOcrHeaders.h; sourceTree = "<group>"; };
+		CED9DAF21FFF83CC0022FE19 /* BaStrUtils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BaStrUtils.c; sourceTree = "<group>"; };
+		CED9DAF31FFF83CC0022FE19 /* BaStrUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaStrUtils.h; sourceTree = "<group>"; };
+		CED9DAF41FFF83CC0022FE19 /* BaSVMTrain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaSVMTrain.cpp; sourceTree = "<group>"; };
+		CED9DAF51FFF83CC0022FE19 /* BaSVMTrain.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaSVMTrain.hpp; sourceTree = "<group>"; };
+		CED9DB0C1FFF84850022FE19 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CED9DAD11FFF838C0022FE19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE4904F720046A78001E03E1 /* TesseractOCR.framework in Frameworks */,
+				CED9DB0D1FFF84850022FE19 /* opencv2.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CED9DACB1FFF838C0022FE19 = {
+			isa = PBXGroup;
+			children = (
+				CED9DAD71FFF838C0022FE19 /* baocr */,
+				CED9DAD61FFF838C0022FE19 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CED9DAD61FFF838C0022FE19 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CED9DAD51FFF838C0022FE19 /* baocr.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CED9DAD71FFF838C0022FE19 /* baocr */ = {
+			isa = PBXGroup;
+			children = (
+				CED9DAD81FFF838C0022FE19 /* baocr.h */,
+				CE4904F820046BAD001E03E1 /* BaOcrApiOC.h */,
+				CE4904F920046BAD001E03E1 /* BaOcrApiOC.m */,
+				CE49050020046E8A001E03E1 /* BaSerialCharRcgOC.h */,
+				CE49050120046E8A001E03E1 /* BaSerialCharRcgOC.m */,
+				CED9DAE01FFF83CC0022FE19 /* BaAlgo.c */,
+				CED9DAE11FFF83CC0022FE19 /* BaAlgo.h */,
+				CED9DAE21FFF83CC0022FE19 /* BaCharOpr.c */,
+				CED9DAE31FFF83CC0022FE19 /* BaCharOpr.h */,
+				CED9DAE41FFF83CC0022FE19 /* BaDetect.c */,
+				CED9DAE51FFF83CC0022FE19 /* BaDetect.h */,
+				CED9DAE61FFF83CC0022FE19 /* BaFeature.c */,
+				CED9DAE71FFF83CC0022FE19 /* BaFeature.h */,
+				CED9DAE81FFF83CC0022FE19 /* BaFileUtils.c */,
+				CED9DAE91FFF83CC0022FE19 /* BaFileUtils.h */,
+				CED9DAEA1FFF83CC0022FE19 /* BaImgOpr.c */,
+				CED9DAEB1FFF83CC0022FE19 /* BaImgOpr.h */,
+				CED9DAEC1FFF83CC0022FE19 /* BaImgUtils.c */,
+				CED9DAED1FFF83CC0022FE19 /* BaImgUtils.h */,
+				CED9DAEE1FFF83CC0022FE19 /* BaOcrApi.c */,
+				CED9DAEF1FFF83CC0022FE19 /* BaOcrApi.h */,
+				CED9DAF01FFF83CC0022FE19 /* BaOcrErrorCode.h */,
+				CED9DAF11FFF83CC0022FE19 /* BaOcrHeaders.h */,
+				CED9DAF21FFF83CC0022FE19 /* BaStrUtils.c */,
+				CED9DAF31FFF83CC0022FE19 /* BaStrUtils.h */,
+				CED9DAF41FFF83CC0022FE19 /* BaSVMTrain.cpp */,
+				CED9DAF51FFF83CC0022FE19 /* BaSVMTrain.hpp */,
+				CED9DAD91FFF838C0022FE19 /* Info.plist */,
+				CEA68B2F2005FA4B00249BEC /* baocr.bundle */,
+				CE4904F620046A78001E03E1 /* TesseractOCR.framework */,
+				CED9DB0C1FFF84850022FE19 /* opencv2.framework */,
+			);
+			path = baocr;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CED9DAD21FFF838C0022FE19 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE4904FA20046BAD001E03E1 /* BaOcrApiOC.h in Headers */,
+				CED9DB051FFF83CC0022FE19 /* BaOcrApi.h in Headers */,
+				CED9DAFB1FFF83CC0022FE19 /* BaDetect.h in Headers */,
+				CED9DB061FFF83CC0022FE19 /* BaOcrErrorCode.h in Headers */,
+				CED9DB0B1FFF83CC0022FE19 /* BaSVMTrain.hpp in Headers */,
+				CED9DAFF1FFF83CC0022FE19 /* BaFileUtils.h in Headers */,
+				CED9DAF91FFF83CC0022FE19 /* BaCharOpr.h in Headers */,
+				CE49050220046E8A001E03E1 /* BaSerialCharRcgOC.h in Headers */,
+				CED9DB031FFF83CC0022FE19 /* BaImgUtils.h in Headers */,
+				CED9DAFD1FFF83CC0022FE19 /* BaFeature.h in Headers */,
+				CED9DAF71FFF83CC0022FE19 /* BaAlgo.h in Headers */,
+				CED9DADA1FFF838C0022FE19 /* baocr.h in Headers */,
+				CED9DB071FFF83CC0022FE19 /* BaOcrHeaders.h in Headers */,
+				CED9DB011FFF83CC0022FE19 /* BaImgOpr.h in Headers */,
+				CED9DB091FFF83CC0022FE19 /* BaStrUtils.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CED9DAD41FFF838C0022FE19 /* baocr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED9DADD1FFF838C0022FE19 /* Build configuration list for PBXNativeTarget "baocr" */;
+			buildPhases = (
+				CED9DAD01FFF838C0022FE19 /* Sources */,
+				CED9DAD11FFF838C0022FE19 /* Frameworks */,
+				CED9DAD21FFF838C0022FE19 /* Headers */,
+				CED9DAD31FFF838C0022FE19 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = baocr;
+			productName = baocr;
+			productReference = CED9DAD51FFF838C0022FE19 /* baocr.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CED9DACC1FFF838C0022FE19 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Yinchengku Technology Co., Ltd. http://www.yinchengku.com";
+				TargetAttributes = {
+					CED9DAD41FFF838C0022FE19 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = SBCC9PT799;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CED9DACF1FFF838C0022FE19 /* Build configuration list for PBXProject "baocr" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CED9DACB1FFF838C0022FE19;
+			productRefGroup = CED9DAD61FFF838C0022FE19 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CED9DAD41FFF838C0022FE19 /* baocr */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CED9DAD31FFF838C0022FE19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEA68B302005FA4B00249BEC /* baocr.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CED9DAD01FFF838C0022FE19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED9DAFE1FFF83CC0022FE19 /* BaFileUtils.c in Sources */,
+				CE49050320046E8A001E03E1 /* BaSerialCharRcgOC.m in Sources */,
+				CED9DAF81FFF83CC0022FE19 /* BaCharOpr.c in Sources */,
+				CED9DB001FFF83CC0022FE19 /* BaImgOpr.c in Sources */,
+				CED9DAF61FFF83CC0022FE19 /* BaAlgo.c in Sources */,
+				CE4904FB20046BAD001E03E1 /* BaOcrApiOC.m in Sources */,
+				CED9DB041FFF83CC0022FE19 /* BaOcrApi.c in Sources */,
+				CED9DB021FFF83CC0022FE19 /* BaImgUtils.c in Sources */,
+				CED9DB0A1FFF83CC0022FE19 /* BaSVMTrain.cpp in Sources */,
+				CED9DAFA1FFF83CC0022FE19 /* BaDetect.c in Sources */,
+				CED9DB081FFF83CC0022FE19 /* BaStrUtils.c in Sources */,
+				CED9DAFC1FFF83CC0022FE19 /* BaFeature.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CED9DADB1FFF838C0022FE19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CED9DADC1FFF838C0022FE19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CED9DADE1FFF838C0022FE19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = SBCC9PT799;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/baocr",
+				);
+				INFOPLIST_FILE = baocr/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yck.baocr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CED9DADF1FFF838C0022FE19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = SBCC9PT799;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/baocr",
+				);
+				INFOPLIST_FILE = baocr/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yck.baocr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CED9DACF1FFF838C0022FE19 /* Build configuration list for PBXProject "baocr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED9DADB1FFF838C0022FE19 /* Debug */,
+				CED9DADC1FFF838C0022FE19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED9DADD1FFF838C0022FE19 /* Build configuration list for PBXNativeTarget "baocr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED9DADE1FFF838C0022FE19 /* Debug */,
+				CED9DADF1FFF838C0022FE19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CED9DACC1FFF838C0022FE19 /* Project object */;
+}

@@ -1,0 +1,654 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		234B34A41FFF4CDC00E29193 /* FileUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 234B34A31FFF4CDB00E29193 /* FileUtils.m */; };
+		234B34A71FFF587A00E29193 /* UIImage+ImageUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 234B34A61FFF587A00E29193 /* UIImage+ImageUtils.m */; };
+		ABD5DADFEB1927BAB6E9E9FE /* libPods-OcrDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E393890B0AF08451EBC2D29A /* libPods-OcrDemo.a */; };
+		CE4905092004CA16001E03E1 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4905082004CA16001E03E1 /* TesseractOCR.framework */; };
+		CE67C08A1FFE4A5200066A3C /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67C0891FFE4A5200066A3C /* opencv2.framework */; };
+		CE67C08C1FFE4D8800066A3C /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67C08B1FFE4D8800066A3C /* libc++.tbd */; };
+		CE67C08E1FFE4F6E00066A3C /* libjpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE67C08D1FFE4F6E00066A3C /* libjpeg.a */; };
+		CEA68B312005FA9D00249BEC /* baocr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA68B322005FA9D00249BEC /* baocr.framework */; };
+		CEA68B332005FAA200249BEC /* baocr.framework in Resources */ = {isa = PBXBuildFile; fileRef = CEA68B322005FA9D00249BEC /* baocr.framework */; };
+		CEA68B352006003500249BEC /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = CEA68B342006003400249BEC /* tessdata */; };
+		CED019CB1FFCB67600DC2C70 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CED019CA1FFCB67600DC2C70 /* main.m */; };
+		CED019CE1FFCB67600DC2C70 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CED019CD1FFCB67600DC2C70 /* AppDelegate.m */; };
+		CED019D61FFCB67600DC2C70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CED019D51FFCB67600DC2C70 /* Assets.xcassets */; };
+		CED019E41FFCB67600DC2C70 /* OcrDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CED019E31FFCB67600DC2C70 /* OcrDemoTests.m */; };
+		CED019F11FFCB88E00DC2C70 /* RootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CED019F01FFCB88E00DC2C70 /* RootVC.m */; };
+		CED019F31FFCB8AD00DC2C70 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED019F21FFCB8AD00DC2C70 /* Default-568h@2x.png */; };
+		CED019F91FFCC05C00DC2C70 /* OcrCaptureView.m in Sources */ = {isa = PBXBuildFile; fileRef = CED019F81FFCC05C00DC2C70 /* OcrCaptureView.m */; };
+		CED019FB1FFCC09600DC2C70 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED019FA1FFCC09600DC2C70 /* AVFoundation.framework */; };
+		CED019FE1FFCDF0E00DC2C70 /* OcrCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED019FD1FFCDF0E00DC2C70 /* OcrCaptureManager.m */; };
+		CED01A011FFCE38200DC2C70 /* OcrCaptureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CED01A001FFCE38200DC2C70 /* OcrCaptureVC.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CED019E01FFCB67600DC2C70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CED019BE1FFCB67600DC2C70 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CED019C51FFCB67600DC2C70;
+			remoteInfo = OcrDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		003C6BD319C090D97D6355C6 /* Pods-OcrDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OcrDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OcrDemo/Pods-OcrDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		234B34A21FFF4CDB00E29193 /* FileUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtils.h; sourceTree = "<group>"; };
+		234B34A31FFF4CDB00E29193 /* FileUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtils.m; sourceTree = "<group>"; };
+		234B34A51FFF587A00E29193 /* UIImage+ImageUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageUtils.h"; sourceTree = "<group>"; };
+		234B34A61FFF587A00E29193 /* UIImage+ImageUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageUtils.m"; sourceTree = "<group>"; };
+		6498F4B2CBE244A6DBF01947 /* Pods-OcrDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OcrDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-OcrDemo/Pods-OcrDemo.release.xcconfig"; sourceTree = "<group>"; };
+		CE4905082004CA16001E03E1 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
+		CE67C0891FFE4A5200066A3C /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		CE67C08B1FFE4D8800066A3C /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		CE67C08D1FFE4F6E00066A3C /* libjpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libjpeg.a; sourceTree = "<group>"; };
+		CEA68B322005FA9D00249BEC /* baocr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = baocr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEA68B342006003400249BEC /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		CED019C61FFCB67600DC2C70 /* OcrDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OcrDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED019CA1FFCB67600DC2C70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CED019CC1FFCB67600DC2C70 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CED019CD1FFCB67600DC2C70 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CED019D51FFCB67600DC2C70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CED019DA1FFCB67600DC2C70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED019DF1FFCB67600DC2C70 /* OcrDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OcrDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CED019E31FFCB67600DC2C70 /* OcrDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OcrDemoTests.m; sourceTree = "<group>"; };
+		CED019E51FFCB67600DC2C70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CED019EE1FFCB71600DC2C70 /* OcrDemo-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OcrDemo-Prefix.pch"; sourceTree = "<group>"; };
+		CED019EF1FFCB88E00DC2C70 /* RootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootVC.h; sourceTree = "<group>"; };
+		CED019F01FFCB88E00DC2C70 /* RootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootVC.m; sourceTree = "<group>"; };
+		CED019F21FFCB8AD00DC2C70 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		CED019F71FFCC05C00DC2C70 /* OcrCaptureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OcrCaptureView.h; sourceTree = "<group>"; };
+		CED019F81FFCC05C00DC2C70 /* OcrCaptureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OcrCaptureView.m; sourceTree = "<group>"; };
+		CED019FA1FFCC09600DC2C70 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CED019FC1FFCDF0E00DC2C70 /* OcrCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OcrCaptureManager.h; sourceTree = "<group>"; };
+		CED019FD1FFCDF0E00DC2C70 /* OcrCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OcrCaptureManager.m; sourceTree = "<group>"; };
+		CED019FF1FFCE38200DC2C70 /* OcrCaptureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OcrCaptureVC.h; sourceTree = "<group>"; };
+		CED01A001FFCE38200DC2C70 /* OcrCaptureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OcrCaptureVC.m; sourceTree = "<group>"; };
+		E393890B0AF08451EBC2D29A /* libPods-OcrDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OcrDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CED019C31FFCB67600DC2C70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEA68B312005FA9D00249BEC /* baocr.framework in Frameworks */,
+				CE67C08C1FFE4D8800066A3C /* libc++.tbd in Frameworks */,
+				CED019FB1FFCC09600DC2C70 /* AVFoundation.framework in Frameworks */,
+				CE4905092004CA16001E03E1 /* TesseractOCR.framework in Frameworks */,
+				CE67C08A1FFE4A5200066A3C /* opencv2.framework in Frameworks */,
+				CE67C08E1FFE4F6E00066A3C /* libjpeg.a in Frameworks */,
+				ABD5DADFEB1927BAB6E9E9FE /* libPods-OcrDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED019DC1FFCB67600DC2C70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B4DFE0D56763A046B4D09A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEA68B322005FA9D00249BEC /* baocr.framework */,
+				CE67C08D1FFE4F6E00066A3C /* libjpeg.a */,
+				CE67C08B1FFE4D8800066A3C /* libc++.tbd */,
+				CE4905082004CA16001E03E1 /* TesseractOCR.framework */,
+				CE67C0891FFE4A5200066A3C /* opencv2.framework */,
+				CED019FA1FFCC09600DC2C70 /* AVFoundation.framework */,
+				E393890B0AF08451EBC2D29A /* libPods-OcrDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CED019BD1FFCB67600DC2C70 = {
+			isa = PBXGroup;
+			children = (
+				CED019C81FFCB67600DC2C70 /* OcrDemo */,
+				CED019E21FFCB67600DC2C70 /* OcrDemoTests */,
+				CED019C71FFCB67600DC2C70 /* Products */,
+				F1EAEB4BDFB90FD235097804 /* Pods */,
+				7B4DFE0D56763A046B4D09A4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CED019C71FFCB67600DC2C70 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CED019C61FFCB67600DC2C70 /* OcrDemo.app */,
+				CED019DF1FFCB67600DC2C70 /* OcrDemoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CED019C81FFCB67600DC2C70 /* OcrDemo */ = {
+			isa = PBXGroup;
+			children = (
+				234B34A21FFF4CDB00E29193 /* FileUtils.h */,
+				234B34A31FFF4CDB00E29193 /* FileUtils.m */,
+				234B34A51FFF587A00E29193 /* UIImage+ImageUtils.h */,
+				234B34A61FFF587A00E29193 /* UIImage+ImageUtils.m */,
+				CED019CC1FFCB67600DC2C70 /* AppDelegate.h */,
+				CED019CD1FFCB67600DC2C70 /* AppDelegate.m */,
+				CED019EF1FFCB88E00DC2C70 /* RootVC.h */,
+				CED019F01FFCB88E00DC2C70 /* RootVC.m */,
+				CED019FC1FFCDF0E00DC2C70 /* OcrCaptureManager.h */,
+				CED019FD1FFCDF0E00DC2C70 /* OcrCaptureManager.m */,
+				CED019F71FFCC05C00DC2C70 /* OcrCaptureView.h */,
+				CED019F81FFCC05C00DC2C70 /* OcrCaptureView.m */,
+				CED019FF1FFCE38200DC2C70 /* OcrCaptureVC.h */,
+				CED01A001FFCE38200DC2C70 /* OcrCaptureVC.m */,
+				CED019D51FFCB67600DC2C70 /* Assets.xcassets */,
+				CED019DA1FFCB67600DC2C70 /* Info.plist */,
+				CED019C91FFCB67600DC2C70 /* Supporting Files */,
+			);
+			path = OcrDemo;
+			sourceTree = "<group>";
+		};
+		CED019C91FFCB67600DC2C70 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CEA68B342006003400249BEC /* tessdata */,
+				CED019F21FFCB8AD00DC2C70 /* Default-568h@2x.png */,
+				CED019CA1FFCB67600DC2C70 /* main.m */,
+				CED019EE1FFCB71600DC2C70 /* OcrDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CED019E21FFCB67600DC2C70 /* OcrDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				CED019E31FFCB67600DC2C70 /* OcrDemoTests.m */,
+				CED019E51FFCB67600DC2C70 /* Info.plist */,
+			);
+			path = OcrDemoTests;
+			sourceTree = "<group>";
+		};
+		F1EAEB4BDFB90FD235097804 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				003C6BD319C090D97D6355C6 /* Pods-OcrDemo.debug.xcconfig */,
+				6498F4B2CBE244A6DBF01947 /* Pods-OcrDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CED019C51FFCB67600DC2C70 /* OcrDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED019E81FFCB67600DC2C70 /* Build configuration list for PBXNativeTarget "OcrDemo" */;
+			buildPhases = (
+				CFA646F4F23872E84A3C7235 /* [CP] Check Pods Manifest.lock */,
+				CED019C21FFCB67600DC2C70 /* Sources */,
+				CED019C31FFCB67600DC2C70 /* Frameworks */,
+				CED019C41FFCB67600DC2C70 /* Resources */,
+				86620EDB8572192D532434DA /* [CP] Embed Pods Frameworks */,
+				4AA04A693191887CC5047356 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OcrDemo;
+			productName = OcrDemo;
+			productReference = CED019C61FFCB67600DC2C70 /* OcrDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CED019DE1FFCB67600DC2C70 /* OcrDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CED019EB1FFCB67600DC2C70 /* Build configuration list for PBXNativeTarget "OcrDemoTests" */;
+			buildPhases = (
+				CED019DB1FFCB67600DC2C70 /* Sources */,
+				CED019DC1FFCB67600DC2C70 /* Frameworks */,
+				CED019DD1FFCB67600DC2C70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CED019E11FFCB67600DC2C70 /* PBXTargetDependency */,
+			);
+			name = OcrDemoTests;
+			productName = OcrDemoTests;
+			productReference = CED019DF1FFCB67600DC2C70 /* OcrDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CED019BE1FFCB67600DC2C70 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Yinchengku Technology Co., Ltd. http://www.yinchengku.com";
+				TargetAttributes = {
+					CED019C51FFCB67600DC2C70 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = MCB4T28LX7;
+						ProvisioningStyle = Automatic;
+					};
+					CED019DE1FFCB67600DC2C70 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = YQ8GF7FB4N;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CED019C51FFCB67600DC2C70;
+					};
+				};
+			};
+			buildConfigurationList = CED019C11FFCB67600DC2C70 /* Build configuration list for PBXProject "OcrDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CED019BD1FFCB67600DC2C70;
+			productRefGroup = CED019C71FFCB67600DC2C70 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CED019C51FFCB67600DC2C70 /* OcrDemo */,
+				CED019DE1FFCB67600DC2C70 /* OcrDemoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CED019C41FFCB67600DC2C70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEA68B332005FAA200249BEC /* baocr.framework in Resources */,
+				CEA68B352006003500249BEC /* tessdata in Resources */,
+				CED019D61FFCB67600DC2C70 /* Assets.xcassets in Resources */,
+				CED019F31FFCB8AD00DC2C70 /* Default-568h@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED019DD1FFCB67600DC2C70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4AA04A693191887CC5047356 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OcrDemo/Pods-OcrDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86620EDB8572192D532434DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OcrDemo/Pods-OcrDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CFA646F4F23872E84A3C7235 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OcrDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CED019C21FFCB67600DC2C70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED019FE1FFCDF0E00DC2C70 /* OcrCaptureManager.m in Sources */,
+				CED019F11FFCB88E00DC2C70 /* RootVC.m in Sources */,
+				234B34A41FFF4CDC00E29193 /* FileUtils.m in Sources */,
+				CED019CE1FFCB67600DC2C70 /* AppDelegate.m in Sources */,
+				CED019F91FFCC05C00DC2C70 /* OcrCaptureView.m in Sources */,
+				CED01A011FFCE38200DC2C70 /* OcrCaptureVC.m in Sources */,
+				CED019CB1FFCB67600DC2C70 /* main.m in Sources */,
+				234B34A71FFF587A00E29193 /* UIImage+ImageUtils.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CED019DB1FFCB67600DC2C70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CED019E41FFCB67600DC2C70 /* OcrDemoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CED019E11FFCB67600DC2C70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CED019C51FFCB67600DC2C70 /* OcrDemo */;
+			targetProxy = CED019E01FFCB67600DC2C70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CED019E61FFCB67600DC2C70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CED019E71FFCB67600DC2C70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CED019E91FFCB67600DC2C70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 003C6BD319C090D97D6355C6 /* Pods-OcrDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MCB4T28LX7;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OcrDemo",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "${SRCROOT}/${PROJECT_NAME}/${PROJECT_NAME}-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactiveCocoa\"",
+				);
+				INFOPLIST_FILE = OcrDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OcrDemo",
+					"$(PROJECT_DIR)",
+				);
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"Masonry\"",
+					"-l\"ReactiveCocoa\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yck.orcdemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CED019EA1FFCB67600DC2C70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6498F4B2CBE244A6DBF01947 /* Pods-OcrDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MCB4T28LX7;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OcrDemo",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "${SRCROOT}/${PROJECT_NAME}/${PROJECT_NAME}-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/MBProgressHUD\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactiveCocoa\"",
+				);
+				INFOPLIST_FILE = OcrDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/OcrDemo",
+					"$(PROJECT_DIR)",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"Masonry\"",
+					"-l\"ReactiveCocoa\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yck.orcdemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		CED019EC1FFCB67600DC2C70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = YQ8GF7FB4N;
+				INFOPLIST_FILE = OcrDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WY.OcrDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OcrDemo.app/OcrDemo";
+			};
+			name = Debug;
+		};
+		CED019ED1FFCB67600DC2C70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = YQ8GF7FB4N;
+				INFOPLIST_FILE = OcrDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = WY.OcrDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OcrDemo.app/OcrDemo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CED019C11FFCB67600DC2C70 /* Build configuration list for PBXProject "OcrDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED019E61FFCB67600DC2C70 /* Debug */,
+				CED019E71FFCB67600DC2C70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED019E81FFCB67600DC2C70 /* Build configuration list for PBXNativeTarget "OcrDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED019E91FFCB67600DC2C70 /* Debug */,
+				CED019EA1FFCB67600DC2C70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CED019EB1FFCB67600DC2C70 /* Build configuration list for PBXNativeTarget "OcrDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CED019EC1FFCB67600DC2C70 /* Debug */,
+				CED019ED1FFCB67600DC2C70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CED019BE1FFCB67600DC2C70 /* Project object */;
+}

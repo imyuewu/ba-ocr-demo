@@ -1,0 +1,23 @@
+//
+//  OcrDemo-Prefix.pch
+//  OcrDemo
+//
+//  Created by nero on 18/1/3.
+//  Copyright © 2018年 Technology Co., Ltd. http://www.imwooy.com. All rights reserved.
+//
+
+#ifndef OcrDemo_Prefix_pch
+#define OcrDemo_Prefix_pch
+
+#import <Masonry/Masonry.h>
+#import <AVFoundation/AVFoundation.h>
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "FileUtils.h"
+#import "UIImage+ImageUtils.h"
+///屏幕宽高
+#define SCREEN_SIZE ([UIScreen mainScreen].bounds.size)
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+#endif /* OcrDemo_Prefix_pch */
