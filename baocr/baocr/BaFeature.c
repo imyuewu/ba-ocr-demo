@@ -1,1 +1,5 @@
-/Users/nero/TempProjects/ocr/utils/BaFeature.c
+#include "BaFeature.h"
+
+void getHOGFeature(const IplImage *srcImage, CvMat *responses) {
+    
+}

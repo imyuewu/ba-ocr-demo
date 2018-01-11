@@ -16,6 +16,4 @@ FOUNDATION_EXPORT const unsigned char baocrVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <baocr/PublicHeader.h>
 
-#import <baocr/BaOcrApi.h>
-#import <baocr/BaOcrErrorCode.h>
 #import <baocr/BaOcrApiOC.h>

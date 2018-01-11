@@ -10,9 +10,15 @@
 #import "BaOcrApi.h"
 #import "BaSerialCharRcgOC.h"
 
+@implementation BaOcrResOC
+
+@end
+
 @implementation BaOcrApiOC
 
-+ (NSString *)getBASerialOC:(NSString *)srcImagePath {
++ (BaOcrResOC *)getBASerialOC:(NSString *)srcImagePath {
+    BaOcrResOC *result = [[BaOcrResOC alloc] init];
+    
     NSMutableString *serialStr = [[NSMutableString alloc] initWithCapacity:17];
     int size = 6;
     int len = 512;
@@ -24,10 +30,7 @@
     if ([defaultManager fileExistsAtPath:srcImagePath]) {
         NSLog(@"file exists at path : %@", srcImagePath);
     }
-    getBASerialPics([srcImagePath
-                     
-                     
-                     UTF8String], size, len, images);
+    getBASerialPics([srcImagePath UTF8String], size, len, images);
     int count = 0;
     for (int i = 0; i < size; i++) {
         if (strlen(images[i]) <= 0) continue;
@@ -40,7 +43,7 @@
         }
         NSLog(@"text = %@", text);
     }
-    return [serialStr copy];
+    return result;
 }
 
 + (NSString *)eatBreakChar:(NSString *)str {

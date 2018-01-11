@@ -7,18 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@interface BaOcrApiOC : NSObject
-
-+ (NSString *)getBASerialOC:(NSString *)srcImagePath;
-
-@end
-
+#import "BaType.h"
 
 @interface BaOcrResOC : NSObject
 
 @property (nonatomic, assign) int errCode;
-//@property (nonatomic, assign) OcrResultType resType;
+@property (nonatomic, assign) OcrResultType resType;
+@property (nonatomic, assign) Boolean isBaImage;
+@property (nonatomic, copy) NSString *serial;
+@property (nonatomic, strong) NSDate *expireDate;
 
+@end
+
+@interface BaOcrApiOC : NSObject
+
++ (BaOcrResOC *)getBASerialOC:(NSString *)srcImagePath;
 
 @end
