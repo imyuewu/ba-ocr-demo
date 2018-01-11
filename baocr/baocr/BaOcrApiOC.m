@@ -19,30 +19,37 @@
 + (BaOcrResOC *)getBASerialOC:(NSString *)srcImagePath {
     BaOcrResOC *result = [[BaOcrResOC alloc] init];
     
-    NSMutableString *serialStr = [[NSMutableString alloc] initWithCapacity:17];
-    int size = 6;
-    int len = 512;
-    char images[size][len];
-    for (int i = 0; i < 6; i++) {
-        images[i][0] = '\0';
-    }
     NSFileManager *defaultManager = [NSFileManager defaultManager];
-    if ([defaultManager fileExistsAtPath:srcImagePath]) {
-        NSLog(@"file exists at path : %@", srcImagePath);
+    if (![defaultManager fileExistsAtPath:srcImagePath]) {
+        NSLog(@"image not exists at path : %@", srcImagePath);
+        result.errCode = IMAGE_FILE_NOT_EXISTS;
+        return result;
     }
-    getBASerialPics([srcImagePath UTF8String], size, len, images);
-    int count = 0;
-    for (int i = 0; i < size; i++) {
-        if (strlen(images[i]) <= 0) continue;
-        NSString *text = [[BaSerialCharRcgOC sharedInstance] rcgEntiretySerial:[NSString stringWithUTF8String:images[i]]];
-        text = [self eatBreakChar:text];
-        if ([self validSerial:text] && count < 2) {
-            [serialStr appendString:text];
-            count++;
-            if (count == 1) [serialStr appendString:@" "];
+    
+    OcrResult ocrRes = getBASerialPics([srcImagePath UTF8String]);
+    result.errCode = ocrRes.errCode;
+    if (ocrRes.errCode == NO_ERROR) {
+        NSMutableString *serialStr = [[NSMutableString alloc] initWithCapacity:17];
+        int count = 0;
+        for (int i = 0; i < MAX_RET_SERIAL_IMG_COUNT; i++) {
+            if (strlen(ocrRes.resData.serialImages[i]) <= 0) continue;
+            NSString *text = [[BaSerialCharRcgOC sharedInstance] rcgEntiretySerial:[NSString stringWithUTF8String:ocrRes.resData.serialImages[i]]];
+            text = [self eatBreakChar:text];
+            if ([self validSerial:text] && count < 2) {
+                [serialStr appendString:text];
+                count++;
+                if (count == 1) [serialStr appendString:@" "];
+            }
+            NSLog(@"text = %@", text);
         }
-        NSLog(@"text = %@", text);
+        if (count == 2) {
+            result.errCode = NO_ERROR;
+            result.serial = [serialStr copy];
+        } else {
+            result.errCode = RCG_IMAGE_SERIAL_FAIL;
+        }
     }
+    
     return result;
 }
 

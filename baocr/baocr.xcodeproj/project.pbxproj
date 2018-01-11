@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE4904F720046A78001E03E1 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE4904F620046A78001E03E1 /* TesseractOCR.framework */; };
 		CE4904FA20046BAD001E03E1 /* BaOcrApiOC.h in Headers */ = {isa = PBXBuildFile; fileRef = CE4904F820046BAD001E03E1 /* BaOcrApiOC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE4904FB20046BAD001E03E1 /* BaOcrApiOC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4904F920046BAD001E03E1 /* BaOcrApiOC.m */; };
 		CE49050220046E8A001E03E1 /* BaSerialCharRcgOC.h in Headers */ = {isa = PBXBuildFile; fileRef = CE49050020046E8A001E03E1 /* BaSerialCharRcgOC.h */; };
 		CE49050320046E8A001E03E1 /* BaSerialCharRcgOC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49050120046E8A001E03E1 /* BaSerialCharRcgOC.m */; };
 		CE5BE7EA2007025B00EA204D /* BaType.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5BE7E92007025B00EA204D /* BaType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE5BE7F22007135F00EA204D /* BaImgCvtTool.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5BE7F02007135F00EA204D /* BaImgCvtTool.h */; };
+		CE5BE7F32007135F00EA204D /* BaImgCvtTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5BE7F12007135F00EA204D /* BaImgCvtTool.m */; };
 		CEA68B302005FA4B00249BEC /* baocr.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEA68B2F2005FA4B00249BEC /* baocr.bundle */; };
 		CED9DADA1FFF838C0022FE19 /* baocr.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAD81FFF838C0022FE19 /* baocr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED9DAF61FFF83CC0022FE19 /* BaAlgo.c in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAE01FFF83CC0022FE19 /* BaAlgo.c */; };
@@ -37,16 +38,20 @@
 		CED9DB091FFF83CC0022FE19 /* BaStrUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAF31FFF83CC0022FE19 /* BaStrUtils.h */; };
 		CED9DB0A1FFF83CC0022FE19 /* BaSVMTrain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAF41FFF83CC0022FE19 /* BaSVMTrain.cpp */; };
 		CED9DB0B1FFF83CC0022FE19 /* BaSVMTrain.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAF51FFF83CC0022FE19 /* BaSVMTrain.hpp */; };
-		CED9DB0D1FFF84850022FE19 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED9DB0C1FFF84850022FE19 /* opencv2.framework */; };
+		CEED8D3F2007140B0053061B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEED8D3E2007140B0053061B /* CoreGraphics.framework */; };
+		CEED8D41200714100053061B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEED8D40200714100053061B /* UIKit.framework */; };
+		CEED8D48200715160053061B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEED8D46200715160053061B /* opencv2.framework */; };
+		CEED8D49200715160053061B /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEED8D47200715160053061B /* TesseractOCR.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE4904F620046A78001E03E1 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
 		CE4904F820046BAD001E03E1 /* BaOcrApiOC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaOcrApiOC.h; sourceTree = "<group>"; };
 		CE4904F920046BAD001E03E1 /* BaOcrApiOC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaOcrApiOC.m; sourceTree = "<group>"; };
 		CE49050020046E8A001E03E1 /* BaSerialCharRcgOC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaSerialCharRcgOC.h; sourceTree = "<group>"; };
 		CE49050120046E8A001E03E1 /* BaSerialCharRcgOC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaSerialCharRcgOC.m; sourceTree = "<group>"; };
 		CE5BE7E92007025B00EA204D /* BaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaType.h; sourceTree = "<group>"; };
+		CE5BE7F02007135F00EA204D /* BaImgCvtTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaImgCvtTool.h; sourceTree = "<group>"; };
+		CE5BE7F12007135F00EA204D /* BaImgCvtTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaImgCvtTool.m; sourceTree = "<group>"; };
 		CEA68B2F2005FA4B00249BEC /* baocr.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baocr.bundle; sourceTree = "<group>"; };
 		CED9DAD51FFF838C0022FE19 /* baocr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = baocr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED9DAD81FFF838C0022FE19 /* baocr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = baocr.h; sourceTree = "<group>"; };
@@ -73,7 +78,10 @@
 		CED9DAF31FFF83CC0022FE19 /* BaStrUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaStrUtils.h; sourceTree = "<group>"; };
 		CED9DAF41FFF83CC0022FE19 /* BaSVMTrain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaSVMTrain.cpp; sourceTree = "<group>"; };
 		CED9DAF51FFF83CC0022FE19 /* BaSVMTrain.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaSVMTrain.hpp; sourceTree = "<group>"; };
-		CED9DB0C1FFF84850022FE19 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		CEED8D3E2007140B0053061B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CEED8D40200714100053061B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CEED8D46200715160053061B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = baocr/Frameworks/opencv2.framework; sourceTree = SOURCE_ROOT; };
+		CEED8D47200715160053061B /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TesseractOCR.framework; path = baocr/Frameworks/TesseractOCR.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +89,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE4904F720046A78001E03E1 /* TesseractOCR.framework in Frameworks */,
-				CED9DB0D1FFF84850022FE19 /* opencv2.framework in Frameworks */,
+				CEED8D49200715160053061B /* TesseractOCR.framework in Frameworks */,
+				CEED8D48200715160053061B /* opencv2.framework in Frameworks */,
+				CEED8D41200714100053061B /* UIKit.framework in Frameworks */,
+				CEED8D3F2007140B0053061B /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +104,7 @@
 			children = (
 				CED9DAD71FFF838C0022FE19 /* baocr */,
 				CED9DAD61FFF838C0022FE19 /* Products */,
+				CEED8D39200713E10053061B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +124,8 @@
 				CE4904F920046BAD001E03E1 /* BaOcrApiOC.m */,
 				CE49050020046E8A001E03E1 /* BaSerialCharRcgOC.h */,
 				CE49050120046E8A001E03E1 /* BaSerialCharRcgOC.m */,
+				CE5BE7F02007135F00EA204D /* BaImgCvtTool.h */,
+				CE5BE7F12007135F00EA204D /* BaImgCvtTool.m */,
 				CED9DAE01FFF83CC0022FE19 /* BaAlgo.c */,
 				CED9DAE11FFF83CC0022FE19 /* BaAlgo.h */,
 				CED9DAE21FFF83CC0022FE19 /* BaCharOpr.c */,
@@ -138,10 +151,20 @@
 				CED9DAF51FFF83CC0022FE19 /* BaSVMTrain.hpp */,
 				CED9DAD91FFF838C0022FE19 /* Info.plist */,
 				CEA68B2F2005FA4B00249BEC /* baocr.bundle */,
-				CE4904F620046A78001E03E1 /* TesseractOCR.framework */,
-				CED9DB0C1FFF84850022FE19 /* opencv2.framework */,
 			);
 			path = baocr;
+			sourceTree = "<group>";
+		};
+		CEED8D39200713E10053061B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEED8D46200715160053061B /* opencv2.framework */,
+				CEED8D47200715160053061B /* TesseractOCR.framework */,
+				CEED8D40200714100053061B /* UIKit.framework */,
+				CEED8D3E2007140B0053061B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			path = ../Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +189,7 @@
 				CED9DADA1FFF838C0022FE19 /* baocr.h in Headers */,
 				CED9DB071FFF83CC0022FE19 /* BaOcrHeaders.h in Headers */,
 				CED9DB011FFF83CC0022FE19 /* BaImgOpr.h in Headers */,
+				CE5BE7F22007135F00EA204D /* BaImgCvtTool.h in Headers */,
 				CED9DB091FFF83CC0022FE19 /* BaStrUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,6 +275,7 @@
 				CED9DB0A1FFF83CC0022FE19 /* BaSVMTrain.cpp in Sources */,
 				CED9DAFA1FFF83CC0022FE19 /* BaDetect.c in Sources */,
 				CED9DB081FFF83CC0022FE19 /* BaStrUtils.c in Sources */,
+				CE5BE7F32007135F00EA204D /* BaImgCvtTool.m in Sources */,
 				CED9DAFC1FFF83CC0022FE19 /* BaFeature.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,6 +403,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/baocr",
+					"$(PROJECT_DIR)/baocr/Frameworks",
 				);
 				INFOPLIST_FILE = baocr/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -403,6 +429,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/baocr",
+					"$(PROJECT_DIR)/baocr/Frameworks",
 				);
 				INFOPLIST_FILE = baocr/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

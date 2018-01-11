@@ -5,8 +5,10 @@
 
 extern const char *g_srcImgPath;
 
-void appendCharsIntoFilePath(const char *srcStr, const char *insertStr, char *resultStr);
-char *genFilePath(const char *filePath, const char *pathExt);
+bool isImageFile(const char *filePath);
+bool isFileExists(const char *filePath);
+bool isDirectory(const char *dirPath);
+void getFileExt(const char *filePath, char *fileExt);
 
 void saveImage(const char *filePath, IplImage *img);
 void saveProcessImage(IplImage *img, const char *ext);

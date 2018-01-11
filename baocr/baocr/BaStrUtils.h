@@ -3,6 +3,8 @@
 
 #include "BaOcrHeaders.h"
 
-void testFunc();
+char *appendStrToPath(const char *path, const char *appdStr);
+void appendCharsIntoFilePath(const char *srcStr, const char *insertStr, char *resultStr);
+char *genFilePath(const char *filePath, const char *pathExt);
 
 #endif

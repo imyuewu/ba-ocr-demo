@@ -8,7 +8,8 @@ typedef enum ImageQuality {IMAGE_QUALITY_HIGH, IMAGE_QUALITY_MEDIAN, IMAGE_QUALI
 typedef enum OcrResultType {
     RESULT_IS_BA_IMAGE,
     RESULT_BA_SERIAL,
-    RESULT_BA_EXPIRE_DATE
+    RESULT_BA_EXPIRE_DATE,
+    RESULT_BA_SERIAL_IMG
 } OcrResultType;
 
 typedef enum BAImageOrientation {
@@ -17,6 +18,9 @@ typedef enum BAImageOrientation {
     ORIENTATION_LEFT,
     ORIENTATION_RIGHT
 } BAImageOrientation;
+
+#define MAX_RET_SERIAL_IMG_COUNT 4
+#define MAX_RET_SERIAL_IMG_PATH_LEN 512
 
 typedef struct OcrResult {
     int errCode;
@@ -29,6 +33,7 @@ typedef struct OcrResult {
             char month[3];
             char day[3];
         } expireData;
+        char serialImages[MAX_RET_SERIAL_IMG_COUNT][MAX_RET_SERIAL_IMG_PATH_LEN];
     } resData;
 } OcrResult;
 

@@ -4,6 +4,7 @@
 #include "BaFileUtils.h"
 #include "BaImgOpr.h"
 #include "BaImgUtils.h"
+#include "BaStrUtils.h"
 
 static int g_errorCode = NO_ERROR;
 
@@ -118,10 +119,17 @@ OcrResult getBAExpireDate(const char *srcImgPath) {
     return result;
 }
 
-void getBASerialPics(const char *srcImgPath, int size, int len, char results[size][len]) {
+OcrResult getBASerialPics(const char *srcImgPath) {
+    g_errorCode = NO_ERROR;
     g_srcImgPath = srcImgPath;
+    OcrResult result = {.resData.serialImages = {'\0'}};
+    result.resType = RESULT_BA_SERIAL_IMG;
 
     IplImage *plSrcImg = cvLoadImage(srcImgPath, CV_LOAD_IMAGE_COLOR);
+    if (!plSrcImg) {
+        result.errCode = IMAGE_FILE_NOT_EXISTS;
+        return result;
+    }
     CvSize srcSize = cvGetSize(plSrcImg);
     // get red channel
     IplImage *plRChannelImg = cvCreateImage(srcSize, plSrcImg->depth, 1);
@@ -129,7 +137,10 @@ void getBASerialPics(const char *srcImgPath, int size, int len, char results[siz
     // cvReleaseImage(&plSrcImg);
 
     // preprocess image
-    if ((g_errorCode = preProcImg(&plRChannelImg)) != NO_ERROR) return;
+    if ((g_errorCode = preProcImg(&plRChannelImg)) != NO_ERROR) {
+        result.errCode = IMAGE_SIZE_TOO_SMALL;
+        return result;
+    }
 
     CvMemStorage *memStorage = cvCreateMemStorage(0);
     CvSeq *serials = cvCreateSeq(0, sizeof(CvSeq), sizeof(ContourRes), memStorage);
@@ -138,9 +149,11 @@ void getBASerialPics(const char *srcImgPath, int size, int len, char results[siz
         // CvBox2D *pRect = (CvBox2D *)cvGetSeqElem(results, i);
         ContourRes *pRes = (ContourRes *)cvGetSeqElem(serials, i);
         cvSetImageROI(plRChannelImg, pRes->rect);
+        
         int sz = snprintf(NULL, 0, "_serial_%d", i);
         char serialFileName[sz + 1];
         snprintf(serialFileName, sizeof serialFileName, "_serial_%d", i);
+        
         CvSize szTmp = cvSize(pRes->rect.width, pRes->rect.height);
         IplImage *plSerial = cvCreateImage(szTmp, plRChannelImg->depth, plRChannelImg->nChannels);
         cvCopy(plRChannelImg, plSerial, NULL);
@@ -155,7 +168,7 @@ void getBASerialPics(const char *srcImgPath, int size, int len, char results[siz
             plSerialRo = NULL;
         }
         char *fullPath = genFilePath(srcImgPath, serialFileName);
-        strncpy(results[i], fullPath, strlen(fullPath) + 1);
+        strncpy(result.resData.serialImages[i], fullPath, strlen(fullPath) + 1);
         free(fullPath);
         oprSerialImage(plSerial, plSerial);
         saveProcessImage(plSerial, serialFileName);
@@ -166,4 +179,6 @@ void getBASerialPics(const char *srcImgPath, int size, int len, char results[siz
     cvReleaseMemStorage(&memStorage);
     cvReleaseImage(&plSrcImg);
     cvReleaseImage(&plRChannelImg);
+    
+    return result;
 }

@@ -1,34 +1,11 @@
 #include "BaFileUtils.h"
 #include "BaAlgo.h"
+#include "BaStrUtils.h"
 
 const char *g_srcImgPath = "a";
 
 static void SaveImageJPG(const char *filePath, IplImage *img);
 static void SaveImagePNG(const char *filePath, IplImage *img);
-
-void appendCharsIntoFilePath(const char *srcStr, const char *insertStr, char *resultStr) {
-    char c = '.';
-    char *dotPtr = NULL;
-    strncpy(resultStr, srcStr, strlen(srcStr));
-    resultStr[strlen(srcStr)] = '\0';
-    if ((dotPtr = strchr(srcStr, c)) == NULL) {
-        strncat(resultStr, insertStr, strlen(insertStr));
-    } else {
-        long charsBeforeDot = dotPtr - srcStr;
-        // printf("charsBeforeDot len : %d\n", charsBeforeDot);
-        resultStr[charsBeforeDot] = '\0';
-        strncat(resultStr, insertStr, strlen(insertStr));
-        strncat(resultStr, dotPtr, strlen(dotPtr));
-    }
-}
-
-
-char *genFilePath(const char *filePath, const char *pathExt) {
-    unsigned long len = strlen(filePath) + strlen(pathExt) + 1;
-    char *finalPath = malloc(sizeof(char) * len);
-    appendCharsIntoFilePath(filePath, pathExt, finalPath);
-    return finalPath;
-}
 
 void saveImage(const char *filePath, IplImage *img) {
     if (strstr(filePath, "png") || strstr(filePath, "PNG")) {
@@ -132,4 +109,55 @@ void genGrayHistImageByFile(const char *imgPath, const char *outImgPath) {
 
     cvReleaseHist(&grayHist);
     cvReleaseImage(&srcImg);
+}
+
+bool isImageFile(const char *filePath) {
+    char ImageExtStr[] = IMAGE_TYPE_SUPPORT_STR;
+    static const char tokseps[] = "|";
+    bool result = false;
+    char fileExt[16] = "\0";
+    getFileExt(filePath, fileExt);
+    // fprintf(stdout, "file ext: %s\n", fileExt);
+    if (strlen(fileExt) <= 0) return result;
+    char *pStr;
+    pStr = strtok(ImageExtStr, tokseps);
+    while (pStr) {
+        // fprintf(stdout, "pStr = %s\n", pStr);
+        if (strcmp(fileExt, pStr) == 0) {
+            result = true;
+            break;
+        }
+        pStr = strtok(NULL, tokseps);
+    }
+    return result;
+}
+
+bool isFileExists(const char *filePath) {
+    bool result = false;
+    FILE *pFile = NULL;
+    if ((pFile = fopen(filePath, "r")) != NULL) {
+        result = true;
+        fclose(pFile);
+    }
+    
+    return result;
+}
+
+bool isDirectory(const char *dirPath) {
+    bool result = false;
+    
+    DIR *pDir;
+    if ((pDir = opendir(dirPath)) != NULL) {
+        result = true;
+        closedir(pDir);
+    }
+    
+    return result;
+}
+
+void getFileExt(const char *filePath, char *fileExt) {
+    char *pStr = NULL;
+    if ((pStr = strrchr(filePath, '.')) != NULL) {
+        strncpy(fileExt, pStr, strlen(pStr) + 1);
+    }
 }

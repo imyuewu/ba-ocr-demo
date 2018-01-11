@@ -1,61 +1,141 @@
 #include "BaSVMTrain.hpp"
+#include "BaOcrHeaders.h"
+#include "BaStrUtils.h"
+#include "BaFileUtils.h"
+#include "BaFeature.h"
 
 using namespace cv;
 
-void train(const char *path) {
-    CvSVM svm; 
-    // // Data for visual representation
-    // int width = 512, height = 512;
-    // Mat image = Mat::zeros(height, width, CV_8UC3);
-    //
-    // // Set up training data
-    // float labels[4] = {1.0, -1.0, -1.0, -1.0};
-    // Mat labelsMat(4, 1, CV_32FC1, labels);
-    //
-    // float trainingData[4][2] = { {501, 10}, {255, 10}, {501, 255}, {10, 501} };
-    // Mat trainingDataMat(4, 2, CV_32FC1, trainingData);
-    //
-    // // Set up SVM's parameters
-    // CvSVMParams params;
-    // params.svm_type    = CvSVM::C_SVC;
-    // params.kernel_type = CvSVM::LINEAR;
-    // params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
-    //
-    // // Train the SVM
-    // CvSVM SVM;
-    // SVM.train(trainingDataMat, labelsMat, Mat(), Mat(), params);
-    //
-    // Vec3b green(0,255,0), blue (255,0,0);
-    // // Show the decision regions given by the SVM
-    // for (int i = 0; i < image.rows; ++i)
-    //     for (int j = 0; j < image.cols; ++j)
-    //     {
-    //         Mat sampleMat = (Mat_<float>(1,2) << j,i);
-    //         float response = SVM.predict(sampleMat);
-    //
-    //         if (response == 1)
-    //             image.at<Vec3b>(i,j)  = green;
-    //         else if (response == -1)
-    //              image.at<Vec3b>(i,j)  = blue;
-    //     }
-    //
-    // // Show the training data
-    // int thickness = -1;
-    // int lineType = 8;
-    // circle( image, Point(501,  10), 5, Scalar(  0,   0,   0), thickness, lineType);
-    // circle( image, Point(255,  10), 5, Scalar(255, 255, 255), thickness, lineType);
-    // circle( image, Point(501, 255), 5, Scalar(255, 255, 255), thickness, lineType);
-    // circle( image, Point( 10, 501), 5, Scalar(255, 255, 255), thickness, lineType);
-    //
-    // // Show support vectors
-    // thickness = 2;
-    // lineType  = 8;
-    // int c     = SVM.get_support_vector_count();
-    //
-    // for (int i = 0; i < c; ++i)
-    // {
-    //     const float* v = SVM.get_support_vector(i);
-    //     circle( image,  Point( (int) v[0], (int) v[1]),   6,  Scalar(128, 128, 128), thickness, lineType);
-    // }
+void prepareTrainData(const char *docPath, Mat *trainData, Mat *trainResponse, Mat *testData, Mat *testResponse);
+Mat genFeatureMat(const char *imagePath);
 
+static SVM predictSVM;
+
+void initSVM(const char *xmlFilePath) {
+    predictSVM.load(xmlFilePath);
+}
+
+void train(const char *path) {
+    Mat trainData;
+    Mat trainResponse;
+    Mat testData;
+    Mat testResponse;
+    prepareTrainData(path, &trainData, &trainResponse, &testData, &testResponse);
+    
+    // Set up SVM's parameters
+    CvSVMParams params;
+    params.svm_type    = CvSVM::C_SVC;
+    params.kernel_type = CvSVM::LINEAR;
+    params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
+    
+    // Train the SVM
+    CvSVM SVM;
+    SVM.train(trainData, trainResponse, Mat(), Mat(), params);
+    char *trainOutFile = appendStrToPath(path, "train_out.xml");
+    SVM.save(trainOutFile);
+    free(trainOutFile);
+    
+    fprintf(stdout, "Begin to test classifies...");
+    int right = 0;
+    for (int i = 0; i < testData.rows; i++) {
+        Mat sample = testData.row(i);
+        if (SVM.predict(sample) == testResponse.at<float>(i)) {
+            right++;
+        }
+    }
+    fprintf(stdout, "The correct rate is %.2f in total %d test cases.", (float)right / testData.rows, testData.rows);
+}
+
+int predict(const char *imagePath) {
+    Mat sampleMat = genFeatureMat(imagePath);
+    return predictSVM.predict(sampleMat);
+}
+
+void prepareTrainData(const char *docPath, Mat *trainData, Mat *trainResponse, Mat *testData, Mat *testResponse) {
+    char *train1DocPath = appendStrToPath(docPath, "train/positive");
+    char *train0DocPath = appendStrToPath(docPath, "train/nagetive");
+    char *test1DocPath = appendStrToPath(docPath, "test/positive");
+    char *test0DocPath = appendStrToPath(docPath, "test/nagetive");
+    
+    DIR *pTrain1Dir;
+    DIR *pTrain0Dir;
+    DIR *pTest1Dir;
+    DIR *pTest0Dir;
+    
+    if ((pTrain1Dir = opendir(train1DocPath)) == NULL) {
+        fprintf(stderr, "Can't open dir %s.", train1DocPath);
+        return;
+    }
+    if ((pTrain0Dir = opendir(train0DocPath)) == NULL) {
+        fprintf(stderr, "Can't open dir %s.", train0DocPath);
+        return;
+    }
+    if ((pTest1Dir = opendir(test1DocPath)) == NULL) {
+        fprintf(stderr, "Can't open dir %s.", test1DocPath);
+        return;
+    }
+    if ((pTest0Dir = opendir(test0DocPath)) == NULL) {
+        fprintf(stderr, "Can't open dir %s.", test0DocPath);
+        return;
+    }
+    
+    struct dirent *pFileInDir;
+    trainData->release();
+    trainResponse->release();
+    while ((pFileInDir = readdir(pTrain1Dir)) != NULL) {
+        if ((pFileInDir->d_type & DT_REG) && isImageFile(pFileInDir->d_name)) { // 普通文件
+            char *fileFullPath = appendStrToPath(train1DocPath, pFileInDir->d_name);
+            trainData->push_back(genFeatureMat(fileFullPath));
+            trainResponse->push_back((float)1.0);
+            free(fileFullPath);
+        }
+    }
+    closedir(pTrain1Dir);
+    free(train1DocPath);
+    
+    while ((pFileInDir = readdir(pTrain0Dir)) != NULL) {
+        if ((pFileInDir->d_type & DT_REG) && isImageFile(pFileInDir->d_name)) { // 普通文件
+            char *fileFullPath = appendStrToPath(train0DocPath, pFileInDir->d_name);
+            trainData->push_back(genFeatureMat(fileFullPath));
+            trainResponse->push_back((float)0.0);
+            free(fileFullPath);
+        }
+    }
+    closedir(pTrain0Dir);
+    free(train0DocPath);
+    
+    testData->release();
+    testResponse->release();
+    while ((pFileInDir = readdir(pTrain0Dir)) != NULL) {
+        if ((pFileInDir->d_type & DT_REG) && isImageFile(pFileInDir->d_name)) { // 普通文件
+            char *fileFullPath = appendStrToPath(test1DocPath, pFileInDir->d_name);
+            testData->push_back(genFeatureMat(fileFullPath));
+            testResponse->push_back((float)1.0);
+            free(fileFullPath);
+        }
+    }
+    closedir(pTest1Dir);
+    free(test1DocPath);
+    
+    
+    while ((pFileInDir = readdir(pTrain0Dir)) != NULL) {
+        if ((pFileInDir->d_type & DT_REG) && isImageFile(pFileInDir->d_name)) { // 普通文件
+            char *fileFullPath = appendStrToPath(test0DocPath, pFileInDir->d_name);
+            testData->push_back(genFeatureMat(fileFullPath));
+            testResponse->push_back((float)0.0);
+            free(fileFullPath);
+        }
+    }
+    closedir(pTest0Dir);
+    free(test0DocPath);
+}
+
+Mat genFeatureMat(const char *imagePath) {
+    IplImage *image = cvLoadImage(imagePath, CV_LOAD_IMAGE_UNCHANGED);
+    CvMat *mat = cvCreateMat(1, cvGetSize(image).width, CV_32FC1);
+    getXMapFeature(image, mat);
+    Mat result = Mat(mat, true);
+    cvReleaseImage(&image);
+    cvReleaseMat(&mat);
+    return result;
 }

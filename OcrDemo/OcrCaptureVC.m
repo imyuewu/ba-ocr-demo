@@ -40,8 +40,13 @@
 - (void)clickCaptureBtn:(OcrCaptureView *)captureView {
     [self.ocrCaptureView takePhoto:^(NSString *imagePath) {
 //        [NSBundle allFrameworks];
-        NSString *mess = [BaOcrApiOC getBASerialOC:imagePath];
-        if (!mess || mess.length < 17) mess = @"检测失败！";
+        BaOcrResOC *result = [BaOcrApiOC getBASerialOC:imagePath];
+        NSString *mess = nil;
+        if (result.errCode == NO_ERROR) {
+            mess = result.serial;
+        } else {
+            mess = @"检测失败！";
+        }
 
         UIAlertController *alerCtrl = [UIAlertController alertControllerWithTitle:@"结果" message:mess preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleCancel handler:nil];

@@ -5,6 +5,8 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <sys/stat.h>
+#include <dirent.h>
 
 // opencv
 #include <opencv2/core/core_c.h>
@@ -25,6 +27,8 @@
 #ifdef RELEASE
 #undef DEBUG
 #endif
+
+#define IMAGE_TYPE_SUPPORT_STR ".jpg|.jpeg|.png|.JPG|.JPEG|.PNG"
 
 #define MIN_BA_AREA_RATIO 0.65
 #define STD_WIDTH 1000
