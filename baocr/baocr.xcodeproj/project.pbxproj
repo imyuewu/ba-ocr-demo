@@ -12,6 +12,7 @@
 		CE4904FB20046BAD001E03E1 /* BaOcrApiOC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4904F920046BAD001E03E1 /* BaOcrApiOC.m */; };
 		CE49050220046E8A001E03E1 /* BaSerialCharRcgOC.h in Headers */ = {isa = PBXBuildFile; fileRef = CE49050020046E8A001E03E1 /* BaSerialCharRcgOC.h */; };
 		CE49050320046E8A001E03E1 /* BaSerialCharRcgOC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE49050120046E8A001E03E1 /* BaSerialCharRcgOC.m */; };
+		CE5BE7EA2007025B00EA204D /* BaType.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5BE7E92007025B00EA204D /* BaType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEA68B302005FA4B00249BEC /* baocr.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEA68B2F2005FA4B00249BEC /* baocr.bundle */; };
 		CED9DADA1FFF838C0022FE19 /* baocr.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAD81FFF838C0022FE19 /* baocr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED9DAF61FFF83CC0022FE19 /* BaAlgo.c in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAE01FFF83CC0022FE19 /* BaAlgo.c */; };
@@ -45,6 +46,7 @@
 		CE4904F920046BAD001E03E1 /* BaOcrApiOC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaOcrApiOC.m; sourceTree = "<group>"; };
 		CE49050020046E8A001E03E1 /* BaSerialCharRcgOC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaSerialCharRcgOC.h; sourceTree = "<group>"; };
 		CE49050120046E8A001E03E1 /* BaSerialCharRcgOC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaSerialCharRcgOC.m; sourceTree = "<group>"; };
+		CE5BE7E92007025B00EA204D /* BaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaType.h; sourceTree = "<group>"; };
 		CEA68B2F2005FA4B00249BEC /* baocr.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baocr.bundle; sourceTree = "<group>"; };
 		CED9DAD51FFF838C0022FE19 /* baocr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = baocr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED9DAD81FFF838C0022FE19 /* baocr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = baocr.h; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				CED9DAED1FFF83CC0022FE19 /* BaImgUtils.h */,
 				CED9DAEE1FFF83CC0022FE19 /* BaOcrApi.c */,
 				CED9DAEF1FFF83CC0022FE19 /* BaOcrApi.h */,
+				CE5BE7E92007025B00EA204D /* BaType.h */,
 				CED9DAF01FFF83CC0022FE19 /* BaOcrErrorCode.h */,
 				CED9DAF11FFF83CC0022FE19 /* BaOcrHeaders.h */,
 				CED9DAF21FFF83CC0022FE19 /* BaStrUtils.c */,
@@ -151,6 +154,7 @@
 				CE4904FA20046BAD001E03E1 /* BaOcrApiOC.h in Headers */,
 				CED9DB051FFF83CC0022FE19 /* BaOcrApi.h in Headers */,
 				CED9DAFB1FFF83CC0022FE19 /* BaDetect.h in Headers */,
+				CE5BE7EA2007025B00EA204D /* BaType.h in Headers */,
 				CED9DB061FFF83CC0022FE19 /* BaOcrErrorCode.h in Headers */,
 				CED9DB0B1FFF83CC0022FE19 /* BaSVMTrain.hpp in Headers */,
 				CED9DAFF1FFF83CC0022FE19 /* BaFileUtils.h in Headers */,

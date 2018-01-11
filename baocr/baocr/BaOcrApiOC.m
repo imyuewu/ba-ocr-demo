@@ -24,7 +24,10 @@
     if ([defaultManager fileExistsAtPath:srcImagePath]) {
         NSLog(@"file exists at path : %@", srcImagePath);
     }
-    getBASerialPics([srcImagePath UTF8String], size, len, images);
+    getBASerialPics([srcImagePath
+                     
+                     
+                     UTF8String], size, len, images);
     int count = 0;
     for (int i = 0; i < size; i++) {
         if (strlen(images[i]) <= 0) continue;

@@ -1,5 +1,1 @@
-#include "BaStrUtils.h"
-
-void testFunc() {
-    // do nothing
-}
+/Users/nero/TempProjects/ocr/utils/BaStrUtils.c

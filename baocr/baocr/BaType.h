@@ -1,0 +1,1 @@
+/Users/nero/TempProjects/ocr/utils/BaType.h

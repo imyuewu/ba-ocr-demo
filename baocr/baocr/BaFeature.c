@@ -1,5 +1,1 @@
-#include "BaFeature.h"
-
-void getHOGFeature(const IplImage *srcImage, CvMat *responses) {
-    
-}
+/Users/nero/TempProjects/ocr/utils/BaFeature.c

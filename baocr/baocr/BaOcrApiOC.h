@@ -13,3 +13,12 @@
 + (NSString *)getBASerialOC:(NSString *)srcImagePath;
 
 @end
+
+
+@interface BaOcrResOC : NSObject
+
+@property (nonatomic, assign) int errCode;
+//@property (nonatomic, assign) OcrResultType resType;
+
+
+@end
