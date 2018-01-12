@@ -8,7 +8,6 @@
 #include "BaSVMTrainWrapper.hpp"
 
 static int g_errorCode = NO_ERROR;
-static const char *g_xml_path = "";
 
 // static int initVariables(const ImageQuality imgQuality);
 
@@ -195,7 +194,7 @@ OcrResult getBASerialPics(const char *srcImgPath, const char *xmlPath) {
     cvReleaseMemStorage(&memStorage);
     cvReleaseImage(&plSrcImg);
     cvReleaseImage(&plRChannelImg);
-    
+
     result.errCode = g_errorCode;
     return result;
 }
