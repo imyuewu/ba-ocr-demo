@@ -77,6 +77,17 @@ void getRedChannelImage(const IplImage *srcImg, IplImage *dstImg) {
     cvReleaseImage(&imgG);
 }
 
+void normalizeSerialImage(IplImage **srcImg) {
+    CvSize srcSize = cvGetSize(*srcImg);
+    float scale = srcSize.width / 100;
+    CvSize dstSize = cvSize(100, srcSize.height * scale);
+    IplImage *resizedImage = cvCreateImage(dstSize, (*srcImg)->depth, (*srcImg)->nChannels);
+    cvResize(*srcImg, resizedImage, CV_INTER_AREA);
+    cvReleaseImage(srcImg);
+    *srcImg = resizedImage;
+    resizedImage = NULL;
+}
+
 void meanShiftImageForSerial(const IplImage *srcImg, IplImage *dstImg) {
     CvSize scSrc = cvGetSize(srcImg);
     IplImage *pl3CImg1 = cvCreateImage(scSrc, srcImg->depth, 3);

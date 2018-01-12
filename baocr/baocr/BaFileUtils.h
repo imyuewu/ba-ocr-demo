@@ -5,6 +5,10 @@
 
 extern const char *g_srcImgPath;
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 bool isImageFile(const char *filePath);
 bool isFileExists(const char *filePath);
 bool isDirectory(const char *dirPath);
@@ -15,5 +19,9 @@ void saveProcessImage(IplImage *img, const char *ext);
 void genGrayHistImage(const char *outImgPath, const CvHistogram *hist, CvSize srcImgSize);
 void genBinMap(const char *imgPath, const char *outImgPath);
 void genGrayHistImageByFile(const char *imgPath, const char *outImgPath);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

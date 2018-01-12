@@ -12,5 +12,6 @@ void showImageInfo(const IplImage *img);
 void rotateImg90n(const IplImage *srcImg, IplImage *dstImg, int angle);
 void rotateImg(const IplImage *srcImg, IplImage *dstImg, int angle);
 void getRedChannelImage(const IplImage *srcImg, IplImage *dstImg);
+void normalizeSerialImage(IplImage **srcImg);
 
 #endif

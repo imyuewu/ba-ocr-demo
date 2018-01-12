@@ -19,7 +19,7 @@ typedef enum BAImageOrientation {
     ORIENTATION_RIGHT
 } BAImageOrientation;
 
-#define MAX_RET_SERIAL_IMG_COUNT 4
+#define MAX_RET_SERIAL_IMG_COUNT 5
 #define MAX_RET_SERIAL_IMG_PATH_LEN 512
 
 typedef struct OcrResult {

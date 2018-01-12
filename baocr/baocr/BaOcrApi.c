@@ -122,7 +122,8 @@ OcrResult getBAExpireDate(const char *srcImgPath) {
 OcrResult getBASerialPics(const char *srcImgPath) {
     g_errorCode = NO_ERROR;
     g_srcImgPath = srcImgPath;
-    OcrResult result = {.resData.serialImages = {'\0'}};
+    OcrResult result;
+    memset(result.resData.serialImages, 0, sizeof(result.resData.serialImages));
     result.resType = RESULT_BA_SERIAL_IMG;
 
     IplImage *plSrcImg = cvLoadImage(srcImgPath, CV_LOAD_IMAGE_COLOR);
@@ -145,7 +146,7 @@ OcrResult getBASerialPics(const char *srcImgPath) {
     CvMemStorage *memStorage = cvCreateMemStorage(0);
     CvSeq *serials = cvCreateSeq(0, sizeof(CvSeq), sizeof(ContourRes), memStorage);
     searchSerialByMorph(plRChannelImg, serials);
-    for (int i = 0; i < serials->total; i++) {
+    for (int i = 0; i < serials->total && i < MAX_RET_SERIAL_IMG_COUNT; i++) {
         // CvBox2D *pRect = (CvBox2D *)cvGetSeqElem(results, i);
         ContourRes *pRes = (ContourRes *)cvGetSeqElem(serials, i);
         cvSetImageROI(plRChannelImg, pRes->rect);
@@ -170,6 +171,7 @@ OcrResult getBASerialPics(const char *srcImgPath) {
         char *fullPath = genFilePath(srcImgPath, serialFileName);
         strncpy(result.resData.serialImages[i], fullPath, strlen(fullPath) + 1);
         free(fullPath);
+        normalizeSerialImage(&plSerial);
         oprSerialImage(plSerial, plSerial);
         saveProcessImage(plSerial, serialFileName);
         cvReleaseImage(&plSerial);

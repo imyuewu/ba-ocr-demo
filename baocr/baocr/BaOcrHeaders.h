@@ -22,7 +22,7 @@
 #include "BaOcrErrorCode.h"
 
 #ifndef DEBUG
-#define DEBUG
+// #define DEBUG
 #endif
 #ifdef RELEASE
 #undef DEBUG

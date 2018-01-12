@@ -27,7 +27,7 @@ void searchTitleByMorph(const IplImage *srcImg, CvSeq *results) {
             cvScalarAll(0), 5, 8, 0);
     }
 
-    saveProcessImage(plArea, "_rect_in_src");
+    // saveProcessImage(plArea, "_rect_in_src");
 
     cvReleaseImage(&plTmp);
     cvReleaseImage(&plArea);
@@ -58,7 +58,7 @@ void searchSerialByMorph(const IplImage *srcImg, CvSeq *results) {
         pRes->rect.x += szSrc.width / 2;
     }
 
-    saveProcessImage(plDetectArea, "_rect_in_src");
+    // saveProcessImage(plDetectArea, "_rect_in_src");
 
     cvReleaseImage(&plDetectArea);
     cvReleaseImage(&plDst);

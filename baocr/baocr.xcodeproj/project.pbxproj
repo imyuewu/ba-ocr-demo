@@ -14,6 +14,8 @@
 		CE5BE7EA2007025B00EA204D /* BaType.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5BE7E92007025B00EA204D /* BaType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE5BE7F22007135F00EA204D /* BaImgCvtTool.h in Headers */ = {isa = PBXBuildFile; fileRef = CE5BE7F02007135F00EA204D /* BaImgCvtTool.h */; };
 		CE5BE7F32007135F00EA204D /* BaImgCvtTool.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5BE7F12007135F00EA204D /* BaImgCvtTool.m */; };
+		CE7A9DEE20089741003E42AD /* BaSVMTrainWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE7A9DEC20089740003E42AD /* BaSVMTrainWrapper.cpp */; };
+		CE7A9DEF20089741003E42AD /* BaSVMTrainWrapper.hpp in Headers */ = {isa = PBXBuildFile; fileRef = CE7A9DED20089740003E42AD /* BaSVMTrainWrapper.hpp */; };
 		CEA68B302005FA4B00249BEC /* baocr.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CEA68B2F2005FA4B00249BEC /* baocr.bundle */; };
 		CED9DADA1FFF838C0022FE19 /* baocr.h in Headers */ = {isa = PBXBuildFile; fileRef = CED9DAD81FFF838C0022FE19 /* baocr.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED9DAF61FFF83CC0022FE19 /* BaAlgo.c in Sources */ = {isa = PBXBuildFile; fileRef = CED9DAE01FFF83CC0022FE19 /* BaAlgo.c */; };
@@ -52,6 +54,8 @@
 		CE5BE7E92007025B00EA204D /* BaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaType.h; sourceTree = "<group>"; };
 		CE5BE7F02007135F00EA204D /* BaImgCvtTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaImgCvtTool.h; sourceTree = "<group>"; };
 		CE5BE7F12007135F00EA204D /* BaImgCvtTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaImgCvtTool.m; sourceTree = "<group>"; };
+		CE7A9DEC20089740003E42AD /* BaSVMTrainWrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaSVMTrainWrapper.cpp; sourceTree = "<group>"; };
+		CE7A9DED20089740003E42AD /* BaSVMTrainWrapper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = BaSVMTrainWrapper.hpp; sourceTree = "<group>"; };
 		CEA68B2F2005FA4B00249BEC /* baocr.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = baocr.bundle; sourceTree = "<group>"; };
 		CED9DAD51FFF838C0022FE19 /* baocr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = baocr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED9DAD81FFF838C0022FE19 /* baocr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = baocr.h; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				CED9DAF31FFF83CC0022FE19 /* BaStrUtils.h */,
 				CED9DAF41FFF83CC0022FE19 /* BaSVMTrain.cpp */,
 				CED9DAF51FFF83CC0022FE19 /* BaSVMTrain.hpp */,
+				CE7A9DEC20089740003E42AD /* BaSVMTrainWrapper.cpp */,
+				CE7A9DED20089740003E42AD /* BaSVMTrainWrapper.hpp */,
 				CED9DAD91FFF838C0022FE19 /* Info.plist */,
 				CEA68B2F2005FA4B00249BEC /* baocr.bundle */,
 			);
@@ -191,6 +197,7 @@
 				CED9DB011FFF83CC0022FE19 /* BaImgOpr.h in Headers */,
 				CE5BE7F22007135F00EA204D /* BaImgCvtTool.h in Headers */,
 				CED9DB091FFF83CC0022FE19 /* BaStrUtils.h in Headers */,
+				CE7A9DEF20089741003E42AD /* BaSVMTrainWrapper.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +281,7 @@
 				CED9DB021FFF83CC0022FE19 /* BaImgUtils.c in Sources */,
 				CED9DB0A1FFF83CC0022FE19 /* BaSVMTrain.cpp in Sources */,
 				CED9DAFA1FFF83CC0022FE19 /* BaDetect.c in Sources */,
+				CE7A9DEE20089741003E42AD /* BaSVMTrainWrapper.cpp in Sources */,
 				CED9DB081FFF83CC0022FE19 /* BaStrUtils.c in Sources */,
 				CE5BE7F32007135F00EA204D /* BaImgCvtTool.m in Sources */,
 				CED9DAFC1FFF83CC0022FE19 /* BaFeature.c in Sources */,

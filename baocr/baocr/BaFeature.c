@@ -1,12 +1,11 @@
 #include "BaFeature.h"
 
 void getHOGFeature(const IplImage *srcImage, CvMat *featureMat) {
-    
+
 }
 
 void getXMapFeature(const IplImage *srcImage, CvMat *featureMat) {
     CvSize srcSize = cvGetSize(srcImage);
-    double *matDataPtr = (double *)(featureMat->data.ptr + 0 * featureMat->step);
     for (int i = 0; i < srcSize.width; i++) {
         int whitePixCount = 0;
         for (int j = 0; j < srcSize.height; j++) {
@@ -15,6 +14,6 @@ void getXMapFeature(const IplImage *srcImage, CvMat *featureMat) {
                 whitePixCount++;
             }
         }
-        matDataPtr[i] = (float)whitePixCount;
+        ((float *)(featureMat->data.ptr))[i] = (float)whitePixCount;
     }
 }
