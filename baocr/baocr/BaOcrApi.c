@@ -5,8 +5,10 @@
 #include "BaImgOpr.h"
 #include "BaImgUtils.h"
 #include "BaStrUtils.h"
+#include "BaSVMTrainWrapper.hpp"
 
 static int g_errorCode = NO_ERROR;
+static const char *g_xml_path = "";
 
 // static int initVariables(const ImageQuality imgQuality);
 
@@ -119,7 +121,7 @@ OcrResult getBAExpireDate(const char *srcImgPath) {
     return result;
 }
 
-OcrResult getBASerialPics(const char *srcImgPath) {
+OcrResult getBASerialPics(const char *srcImgPath, const char *xmlPath) {
     g_errorCode = NO_ERROR;
     g_srcImgPath = srcImgPath;
     OcrResult result;
@@ -146,15 +148,19 @@ OcrResult getBASerialPics(const char *srcImgPath) {
     CvMemStorage *memStorage = cvCreateMemStorage(0);
     CvSeq *serials = cvCreateSeq(0, sizeof(CvSeq), sizeof(ContourRes), memStorage);
     searchSerialByMorph(plRChannelImg, serials);
-    for (int i = 0; i < serials->total && i < MAX_RET_SERIAL_IMG_COUNT; i++) {
+    struct tagTrain *pTrain;
+    pTrain = GetInstance();
+    SetXMLPath(pTrain, xmlPath);
+    int validCount = 0;
+    for (int i = 0; i < serials->total && validCount < MAX_RET_SERIAL_IMG_COUNT; i++) {
         // CvBox2D *pRect = (CvBox2D *)cvGetSeqElem(results, i);
         ContourRes *pRes = (ContourRes *)cvGetSeqElem(serials, i);
         cvSetImageROI(plRChannelImg, pRes->rect);
-        
+
         int sz = snprintf(NULL, 0, "_serial_%d", i);
         char serialFileName[sz + 1];
         snprintf(serialFileName, sizeof serialFileName, "_serial_%d", i);
-        
+
         CvSize szTmp = cvSize(pRes->rect.width, pRes->rect.height);
         IplImage *plSerial = cvCreateImage(szTmp, plRChannelImg->depth, plRChannelImg->nChannels);
         cvCopy(plRChannelImg, plSerial, NULL);
@@ -168,19 +174,37 @@ OcrResult getBASerialPics(const char *srcImgPath) {
             plSerial = plSerialRo;
             plSerialRo = NULL;
         }
-        char *fullPath = genFilePath(srcImgPath, serialFileName);
-        strncpy(result.resData.serialImages[i], fullPath, strlen(fullPath) + 1);
-        free(fullPath);
-        normalizeSerialImage(&plSerial);
-        oprSerialImage(plSerial, plSerial);
-        saveProcessImage(plSerial, serialFileName);
+
+        IplImage *plForPredict = cvCloneImage(plSerial);
+        normalizeSerialImage(&plForPredict);
+        oprSerialImage(plForPredict, plForPredict);
+        if (Predict(pTrain, plForPredict) == 1.0) {
+            oprSerialImage(plSerial, plSerial);
+            saveProcessImage(plSerial, serialFileName);
+            char *fullPath = genFilePath(srcImgPath, serialFileName);
+            strncpy(result.resData.serialImages[i], fullPath, strlen(fullPath) + 1);
+            free(fullPath);
+            validCount++;
+        }
+        cvReleaseImage(&plForPredict);
         cvReleaseImage(&plSerial);
     }
 
+    ReleaseInstance(&pTrain);
     cvClearMemStorage(memStorage);
     cvReleaseMemStorage(&memStorage);
     cvReleaseImage(&plSrcImg);
     cvReleaseImage(&plRChannelImg);
     
+    result.errCode = g_errorCode;
     return result;
+}
+
+void testTrain(const char *dirPath, const char *xmlOutPath) {
+    struct tagTrain *pTrain;
+    pTrain = GetInstance();
+    Train(pTrain, dirPath, xmlOutPath);
+    SetXMLPath(pTrain, xmlOutPath);
+    ReleaseInstance(&pTrain);
+    assert(pTrain == 0);
 }

@@ -79,8 +79,8 @@ void getRedChannelImage(const IplImage *srcImg, IplImage *dstImg) {
 
 void normalizeSerialImage(IplImage **srcImg) {
     CvSize srcSize = cvGetSize(*srcImg);
-    float scale = srcSize.width / 100;
-    CvSize dstSize = cvSize(100, srcSize.height * scale);
+    float scale = (float)SERIAL_NORMALIZE_WIDTH / srcSize.width;
+    CvSize dstSize = cvSize(SERIAL_NORMALIZE_WIDTH, srcSize.height * scale);
     IplImage *resizedImage = cvCreateImage(dstSize, (*srcImg)->depth, (*srcImg)->nChannels);
     cvResize(*srcImg, resizedImage, CV_INTER_AREA);
     cvReleaseImage(srcImg);

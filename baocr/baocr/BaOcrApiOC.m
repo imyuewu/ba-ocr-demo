@@ -25,8 +25,8 @@
         result.errCode = IMAGE_FILE_NOT_EXISTS;
         return result;
     }
-    
-    OcrResult ocrRes = getBASerialPics([srcImagePath UTF8String]);
+
+    OcrResult ocrRes = getBASerialPics([srcImagePath UTF8String], [[BaOcrApiOC serialXMLPath] UTF8String]);
     result.errCode = ocrRes.errCode;
     if (ocrRes.errCode == NO_ERROR) {
         NSMutableString *serialStr = [[NSMutableString alloc] initWithCapacity:17];
@@ -35,19 +35,19 @@
             if (strlen(ocrRes.resData.serialImages[i]) <= 0) continue;
             NSString *text = [[BaSerialCharRcgOC sharedInstance] rcgEntiretySerial:[NSString stringWithUTF8String:ocrRes.resData.serialImages[i]]];
             text = [self eatBreakChar:text];
-            if ([self validSerial:text] && count < 2) {
-                [serialStr appendString:text];
-                count++;
-                if (count == 1) [serialStr appendString:@" "];
-            }
+            [serialStr appendString:text];
+//            count++;
+            [serialStr appendString:@" "];
             NSLog(@"text = %@", text);
         }
-        if (count == 2) {
-            result.errCode = NO_ERROR;
-            result.serial = [serialStr copy];
-        } else {
-            result.errCode = RCG_IMAGE_SERIAL_FAIL;
-        }
+//        if (count == 2) {
+//            result.errCode = NO_ERROR;
+//            result.serial = [serialStr copy];
+//        } else {
+//            result.errCode = RCG_IMAGE_SERIAL_FAIL;
+//        }
+        result.errCode = NO_ERROR;
+        result.serial = [serialStr copy];
     }
     
     return result;
@@ -63,6 +63,28 @@
 + (BOOL)validSerial:(NSString *)str {
     if ([str containsString:@" "]) return false;
     return true;
+}
+
++ (NSString *)serialXMLPath {
+    NSString *frameworkPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"baocr" ofType:@"framework"];
+    NSString *srcBundlePath = [[NSBundle bundleWithPath:frameworkPath] pathForResource:@"baocr" ofType:@"bundle"];
+    NSString *svmDataPath = [srcBundlePath stringByAppendingPathComponent:@"svmdata"];
+    return [svmDataPath stringByAppendingPathComponent:@"train_out.xml"];
+}
+
++ (void)testTrain {
+    NSString *frameworkPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"baocr" ofType:@"framework"];
+    NSString *srcBundlePath = [[NSBundle bundleWithPath:frameworkPath] pathForResource:@"baocr" ofType:@"bundle"];
+    NSString *sampleDocPath = [srcBundlePath stringByAppendingPathComponent:@"serial-samples"];
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:sampleDocPath]) {
+        NSLog(@"smaple file exists.");
+    }
+    NSArray *pathArr = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    
+    NSString *cachePath = [[pathArr objectAtIndex:0] stringByAppendingPathComponent:@"Caches"];
+    NSString *xmlOutPath = [cachePath stringByAppendingPathComponent:@"train_out.xml"];
+    testTrain([sampleDocPath UTF8String], [xmlOutPath UTF8String]);
 }
 
 @end

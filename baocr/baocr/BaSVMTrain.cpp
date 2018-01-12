@@ -2,40 +2,40 @@
 #include "BaStrUtils.h"
 #include "BaFileUtils.h"
 #include "BaFeature.h"
+#include "stdlib.h"
 
 BaSVMTrain::BaSVMTrain() {
+    xmlPath = NULL;
     _svm = new SVM;
-}
-
-BaSVMTrain::BaSVMTrain(const char *path):xmlPath(path) {
-    _svm = new SVM;
-    _svm->load(xmlPath);
 }
 
 BaSVMTrain::~BaSVMTrain() {
+    if (xmlPath) {
+        free(xmlPath);
+        xmlPath = NULL;
+    }
     delete _svm;
 }
 
-void BaSVMTrain::train(const char *path) {
+void BaSVMTrain::train(const char *dirPath, const char *xmlOutPath) {
     Mat trainData;
     Mat trainResponse;
     Mat testData;
     Mat testResponse;
     fprintf(stdout, "Start to train data...\n");
-    prepareTrainData(path, &trainData, &trainResponse, &testData, &testResponse);
+    prepareTrainData(dirPath, &trainData, &trainResponse, &testData, &testResponse);
 
     // Set up SVM's parameters
     CvSVMParams params;
     params.svm_type    = CvSVM::C_SVC;
     params.kernel_type = CvSVM::LINEAR;
     params.term_crit   = cvTermCriteria(CV_TERMCRIT_ITER, 100, 1e-6);
+    // params.C           = 6.0;
 
     // Train the SVM
     CvSVM SVM;
     SVM.train(trainData, trainResponse, Mat(), Mat(), params);
-    char *trainOutFile = appendStrToPath(path, "train_out.xml");
-    SVM.save(trainOutFile);
-    free(trainOutFile);
+    SVM.save(xmlOutPath);
 
     fprintf(stdout, "Begin to test classifies...\n");
     int right = 0;
@@ -49,13 +49,26 @@ void BaSVMTrain::train(const char *path) {
 
 }
 
-float BaSVMTrain::predict(const char *imagePath) {
+float BaSVMTrain::predict2(const char *imagePath) {
     Mat sampleMat = genFeatureMat(imagePath);
     return _svm->predict(sampleMat);
 }
 
+float BaSVMTrain::predict(IplImage *image) {
+    CvMat *mat = cvCreateMat(1, cvGetSize(image).width, CV_32FC1);
+    getXMapFeature(image, mat);
+    Mat sampleMat = Mat(mat, true);
+    cvReleaseMat(&mat);
+    return _svm->predict(sampleMat);
+}
+
 void BaSVMTrain::setXMLPath(const char *path) {
-    xmlPath = path;
+    if (xmlPath) {
+        free(xmlPath);
+        xmlPath = NULL;
+    }
+    xmlPath = (char *)calloc(strlen(path) + 1, sizeof(char));
+    strncpy(xmlPath, path, strlen(path));
     _svm->load(xmlPath);
 }
 

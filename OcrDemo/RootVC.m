@@ -32,6 +32,19 @@
     [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     btn.layer.borderWidth = 2.0f;
     btn.layer.borderColor = [[UIColor orangeColor] CGColor];
+    
+    UIButton *btn2 = [[UIButton alloc] init];
+    [self.view addSubview:btn2];
+    [btn2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.equalTo(btn);
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(btn.mas_bottom).offset(30.0f);
+    }];
+    [btn2 addTarget:self action:@selector(didClickTrainBtn) forControlEvents:UIControlEventTouchUpInside];
+    [btn2 setTitle:@"开始训练" forState:UIControlStateNormal];
+    [btn2 setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    btn2.layer.borderWidth = 2.0f;
+    btn2.layer.borderColor = [[UIColor orangeColor] CGColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +55,10 @@
 - (void)didClickTakePhotoBtn {
     OcrCaptureVC *captureVC = [[OcrCaptureVC alloc] init];
     [self presentViewController:captureVC animated:YES completion:nil];
+}
+
+- (void)didClickTrainBtn {
+    [BaOcrApiOC testTrain];
 }
 
 @end

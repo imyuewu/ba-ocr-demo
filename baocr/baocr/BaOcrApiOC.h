@@ -22,5 +22,6 @@
 @interface BaOcrApiOC : NSObject
 
 + (BaOcrResOC *)getBASerialOC:(NSString *)srcImagePath;
++ (void)testTrain;
 
 @end

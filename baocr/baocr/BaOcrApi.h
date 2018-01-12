@@ -7,6 +7,8 @@
 OcrResult isBAImage(const char *srcImgPath);
 OcrResult getBASerial(const char *srcImgPath);
 OcrResult getBAExpireDate(const char *srcImgPath);
-OcrResult getBASerialPics(const char *srcImgPath);
+OcrResult getBASerialPics(const char *srcImgPath, const char *xmlPath);
+
+void testTrain(const char *dirPath, const char *xmlOutPath);
 
 #endif
