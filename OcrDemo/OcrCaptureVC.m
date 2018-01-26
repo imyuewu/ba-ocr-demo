@@ -26,7 +26,6 @@
     
     [self.ocrCaptureView initCamera];
     [self.ocrCaptureView initUI];
-    
 }
 
 - (void)didReceiveMemoryWarning {

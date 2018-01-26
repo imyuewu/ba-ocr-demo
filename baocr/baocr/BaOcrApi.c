@@ -174,18 +174,23 @@ OcrResult getBASerialPics(const char *srcImgPath, const char *xmlPath) {
             plSerialRo = NULL;
         }
 
-        IplImage *plForPredict = cvCloneImage(plSerial);
-        normalizeSerialImage(&plForPredict);
-        oprSerialImage(plForPredict, plForPredict);
-        if (Predict(pTrain, plForPredict) == 1.0) {
-            oprSerialImage(plSerial, plSerial);
-            saveProcessImage(plSerial, serialFileName);
-            char *fullPath = genFilePath(srcImgPath, serialFileName);
-            strncpy(result.resData.serialImages[i], fullPath, strlen(fullPath) + 1);
-            free(fullPath);
-            validCount++;
-        }
-        cvReleaseImage(&plForPredict);
+//        IplImage *plForPredict = cvCloneImage(plSerial);
+//        normalizeSerialImage(&plForPredict);
+//        oprSerialImage(plForPredict, plForPredict);
+//        if (Predict(pTrain, plForPredict) == 1.0) {
+//            oprSerialImage(plSerial, plSerial);
+//            saveProcessImage(plSerial, serialFileName);
+//            char *fullPath = genFilePath(srcImgPath, serialFileName);
+//            strncpy(result.resData.serialImages[i], fullPath, strlen(fullPath) + 1);
+//            free(fullPath);
+//            validCount++;
+//        }
+//        cvReleaseImage(&plForPredict);
+        char *fullPath = genFilePath(srcImgPath, serialFileName);
+        strncpy(result.resData.serialImages[i], fullPath, strlen(fullPath) + 1);
+        free(fullPath);
+        oprSerialImage(plSerial, plSerial);
+        saveProcessImage(plSerial, serialFileName);
         cvReleaseImage(&plSerial);
     }
 

@@ -35,17 +35,22 @@
             if (strlen(ocrRes.resData.serialImages[i]) <= 0) continue;
             NSString *text = [[BaSerialCharRcgOC sharedInstance] rcgEntiretySerial:[NSString stringWithUTF8String:ocrRes.resData.serialImages[i]]];
             text = [self eatBreakChar:text];
-            [serialStr appendString:text];
-//            count++;
-            [serialStr appendString:@" "];
+//            [serialStr appendString:text];
+////            count++;
+//            [serialStr appendString:@" "];
+            if ([self validSerial:text] && count < 2) {
+                [serialStr appendString:text];
+                count++;
+                if (count == 1) [serialStr appendString:@" "];
+            }
             NSLog(@"text = %@", text);
         }
-//        if (count == 2) {
-//            result.errCode = NO_ERROR;
-//            result.serial = [serialStr copy];
-//        } else {
-//            result.errCode = RCG_IMAGE_SERIAL_FAIL;
-//        }
+        if (count == 2) {
+            result.errCode = NO_ERROR;
+            result.serial = [serialStr copy];
+        } else {
+            result.errCode = RCG_IMAGE_SERIAL_FAIL;
+        }
         result.errCode = NO_ERROR;
         result.serial = [serialStr copy];
     }
